@@ -1,0 +1,272 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum LessonType {
+  ARTICLE
+  PDF
+  PPT
+  PRACTICAL
+  ASSIGNMENT
+  QUIZ
+  LIVE_SESSION
+  VIDEO
+}
+
+enum EnrollmentStatus {
+  PENDING
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESSFUL
+  FAILED
+  REFUNDED
+}
+
+enum SubmissionStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  SUBMITTED
+  UNDER_REVIEW
+  CHANGES_REQUIRED
+  GRADED
+  APPROVED
+}
+
+enum LiveSessionStatus {
+  UPCOMING
+  LIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum ProjectType {
+  MINI
+  MAJOR
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  passwordHash String
+  name         String
+  role         Role          @default(STUDENT)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  profile      Profile?
+  enrollments  Enrollment[]
+  progress     LessonProgress[]
+  assignmentSubmissions AssignmentSubmission[]
+  projectSubmissions    ProjectSubmission[]
+  certificates          Certificate[]
+}
+
+model Profile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  phone           String?
+  college         String?
+  degree          String?
+  currentYear     String?
+  city            String?
+  experienceLevel String?
+  careerGoal      String?
+  linkedinUrl     String?
+  githubUrl       String?
+  avatarUrl       String?
+  updatedAt       DateTime @updatedAt
+}
+
+model InternshipProgram {
+  id            String           @id @default(uuid())
+  title         String
+  slug          String           @unique
+  durationDays  Int
+  level         String           // Beginner, Intermediate, Advanced
+  description   String
+  projectsCount Int
+  certEligible  Boolean          @default(true)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  specializations Specialization[]
+  modules       Module[]
+  enrollments   Enrollment[]
+  projects      Project[]
+  certificates  Certificate[]
+}
+
+model Specialization {
+  id          String            @id @default(uuid())
+  title       String            // SOC Analyst, VAPT, GRC
+  description String
+  programId   String
+  program     InternshipProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  modules     Module[]
+  enrollments Enrollment[]
+}
+
+model Module {
+  id               String          @id @default(uuid())
+  title            String
+  weekNumber       Int
+  programId        String
+  program          InternshipProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  specializationId String?
+  specialization   Specialization? @relation(fields: [specializationId], references: [id], onDelete: SetNull)
+  lessons          Lesson[]
+  resources        Resource[]
+  assignments      Assignment[]
+}
+
+model Lesson {
+  id          String           @id @default(uuid())
+  title       String
+  orderIndex  Int
+  type        LessonType       @default(ARTICLE)
+  content     String           @db.Text // Contains markdown or text content
+  moduleId    String
+  module      Module           @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progresses  LessonProgress[]
+}
+
+model Resource {
+  id        String   @id @default(uuid())
+  title     String
+  type      String   // PDF, PPT
+  url       String
+  sizeBytes Int
+  moduleId  String
+  module    Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+}
+
+model Enrollment {
+  id               String            @id @default(uuid())
+  studentId        String
+  student          User              @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  programId        String
+  program          InternshipProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  specializationId String?
+  specialization   Specialization?   @relation(fields: [specializationId], references: [id], onDelete: SetNull)
+  status           EnrollmentStatus  @default(PENDING)
+  startDate        DateTime          @default(now())
+  expectedEndDate  DateTime
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  payments         Payment[]
+}
+
+model LessonProgress {
+  id          String   @id @default(uuid())
+  studentId   String
+  student     User     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  lessonId    String
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  completed   Boolean  @default(false)
+  completedAt DateTime @default(now())
+
+  @@unique([studentId, lessonId])
+}
+
+model Assignment {
+  id          String                 @id @default(uuid())
+  title       String
+  instruction String                 @db.Text
+  deadline    DateTime?
+  maxPoints   Int                    @default(100)
+  moduleId    String
+  module      Module                 @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  submissions AssignmentSubmission[]
+}
+
+model AssignmentSubmission {
+  id           String           @id @default(uuid())
+  studentId    String
+  student      User             @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  assignmentId String
+  assignment   Assignment       @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  status       SubmissionStatus @default(SUBMITTED)
+  points       Int?
+  fileUrl      String
+  feedback     String?          @db.Text
+  submittedAt  DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+}
+
+model Project {
+  id           String              @id @default(uuid())
+  title        String
+  type         ProjectType         @default(MINI)
+  requirements String              @db.Text
+  deadline     DateTime?
+  programId    String
+  program      InternshipProgram   @relation(fields: [programId], references: [id], onDelete: Cascade)
+  submissions  ProjectSubmission[]
+}
+
+model ProjectSubmission {
+  id          String           @id @default(uuid())
+  studentId   String
+  student     User             @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  projectId   String
+  project     Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  status      SubmissionStatus @default(SUBMITTED)
+  fileUrl     String
+  feedback    String?          @db.Text
+  submittedAt DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+model LiveSession {
+  id          String            @id @default(uuid())
+  title       String
+  startTime   DateTime
+  durationMins Int              @default(60)
+  instructor  String
+  status      LiveSessionStatus @default(UPCOMING)
+  joinUrl     String
+}
+
+model Certificate {
+  id             String            @id @default(uuid())
+  certificateId  String            @unique // e.g., CYB-2026-000145
+  studentId      String
+  student        User              @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  programId      String
+  program        InternshipProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  issueDate      DateTime          @default(now())
+  verificationUrl String
+}
+
+model Announcement {
+  id        String   @id @default(uuid())
+  title     String
+  content   String   @db.Text
+  date      DateTime @default(now())
+}
+
+model Payment {
+  id           String        @id @default(uuid())
+  enrollmentId String
+  enrollment   Enrollment    @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  status       PaymentStatus @default(PENDING)
+  amount       Float
+  paymentDate  DateTime      @default(now())
+}

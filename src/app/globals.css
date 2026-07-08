@@ -1,26 +1,205 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-dark: #07111F;
+  --color-brand-navy: #0B1728;
+  --color-brand-elevated: #101E31;
+  --color-brand-cyan: #22D3EE;
+  --color-brand-blue: #3B82F6;
+  --color-brand-violet: #8B5CF6;
+  
+  --color-text-dark-primary: #F8FAFC;
+  --color-text-dark-secondary: #94A3B8;
+  --color-text-light-primary: #0F172A;
+  --color-text-light-secondary: #64748B;
+  
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-sans: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-track {
+  background: #07111F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #101E31;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 211, 238, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e2e4a;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+/* Tech Grid Pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(34, 211, 238, 0.08) 1px, transparent 1px);
+}
+
+/* Glow Elements */
+.cyan-glow {
+  filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.3));
+}
+
+.violet-glow {
+  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.25));
+}
+
+/* Transitions */
+.transition-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-glow:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-manrope);
+  letter-spacing: -0.02em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+  background-color: #F7F9FC;
+  color: #0F172A;
+  overflow-x: hidden;
 }
+
+/* Dark layout default fallback */
+.dark-theme {
+  background-color: #07111F;
+  color: #F8FAFC;
+}
+
+/* Focus style reset */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Animations */
+.animate-float-rotate-3d {
+  animation: floatRotate3d 8s ease-in-out infinite;
+}
+
+.animate-shield-scan {
+  animation: shieldScan 3.5s ease-in-out infinite;
+}
+
+.animate-orbit-cyan {
+  animation: orbitCyan 12s linear infinite;
+}
+
+.animate-orbit-violet {
+  animation: orbitViolet 15s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spinSlowReverse 25s linear infinite;
+}
+
+/* Keyframes */
+@keyframes floatRotate3d {
+  0% {
+    transform: rotateY(-18deg) rotateX(8deg) translateY(0px);
+  }
+  50% {
+    transform: rotateY(18deg) rotateX(-6deg) translateY(-16px);
+  }
+  100% {
+    transform: rotateY(-18deg) rotateX(8deg) translateY(0px);
+  }
+}
+
+@keyframes shieldScan {
+  0% {
+    top: -5%;
+  }
+  50% {
+    top: 95%;
+  }
+  100% {
+    top: -5%;
+  }
+}
+
+@keyframes orbitCyan {
+  0% {
+    transform: rotateX(60deg) rotateY(10deg) rotateZ(0deg) translateX(190px) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(10deg) rotateZ(360deg) translateX(190px) rotateZ(-360deg);
+  }
+}
+
+@keyframes orbitViolet {
+  0% {
+    transform: rotateX(-45deg) rotateY(20deg) rotateZ(360deg) translateX(160px) rotateZ(-360deg);
+  }
+  100% {
+    transform: rotateX(-45deg) rotateY(20deg) rotateZ(0deg) translateX(160px) rotateZ(0deg);
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotateX(65deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(65deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinSlowReverse {
+  0% {
+    transform: rotateX(65deg) rotateY(-15deg) rotateZ(360deg);
+  }
+  100% {
+    transform: rotateX(65deg) rotateY(-15deg) rotateZ(0deg);
+  }
+}
+
