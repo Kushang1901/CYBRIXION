@@ -47,9 +47,7 @@ export default function Header() {
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Why Choose Us', href: '/why-choose-us' },
     { label: 'Internships', href: '/internships' },
-    { label: 'Resources', href: '/resources' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
   ];
@@ -68,20 +66,18 @@ export default function Header() {
         isScrolled
           ? 'bg-brand-dark/80 backdrop-blur-md border-slate-800/80 shadow-md'
           : pathname.startsWith('/dashboard') || pathname === '/login' || pathname === '/register' || pathname === '/forgot-password'
-          ? 'bg-[#07111F] border-slate-800/50'
+          ? 'bg-[#030712] border-slate-800/50'
           : 'bg-transparent border-transparent'
       }`}
     >
       <Container className="h-full flex items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2.5 group cursor-pointer">
-          <div className="relative w-9 h-9 flex items-center justify-center bg-brand-cyan/10 border border-brand-cyan/30 rounded-lg group-hover:border-brand-cyan/80 transition-all duration-300">
-            <Shield className="w-5 h-5 text-brand-cyan group-hover:scale-105 transition-transform" />
-            <div className="absolute inset-0 bg-brand-cyan/20 blur-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <span className="font-manrope font-extrabold text-xl tracking-tight text-white">
-            CYB<span className="text-brand-cyan">RIXON</span>
-          </span>
+        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+          <img 
+            src="/logo.jpg" 
+            alt="CYBRIXION" 
+            className="h-10 w-auto rounded-md border border-slate-800/60 shadow-sm group-hover:border-brand-logo-purple/60 transition-all duration-300"
+          />
         </Link>
 
         {/* DESKTOP NAV LINKS */}

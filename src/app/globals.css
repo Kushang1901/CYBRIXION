@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-dark: #07111F;
-  --color-brand-navy: #0B1728;
-  --color-brand-elevated: #101E31;
+  --color-brand-dark: #030712;
+  --color-brand-navy: #050b16;
+  --color-brand-elevated: #0B1524;
   --color-brand-cyan: #22D3EE;
   --color-brand-blue: #3B82F6;
   --color-brand-violet: #8B5CF6;
+  --color-brand-logo-red: #D3222A;
+  --color-brand-logo-purple: #63276F;
   
   --color-text-dark-primary: #F8FAFC;
   --color-text-dark-secondary: #94A3B8;
-  --color-text-light-primary: #0F172A;
-  --color-text-light-secondary: #64748B;
+  --color-text-light-primary: #F8FAFC;
+  --color-text-light-secondary: #94A3B8;
   
   --color-success: #22C55E;
   --color-warning: #F59E0B;
@@ -32,40 +34,40 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #07111F;
+  background: #030712;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #101E31;
+  background: #0B1524;
   border-radius: 4px;
-  border: 1px solid rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(211, 34, 42, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1e2e4a;
-  border: 1px solid rgba(34, 211, 238, 0.3);
+  background: #111f35;
+  border: 1px solid rgba(211, 34, 42, 0.3);
 }
 
 /* Tech Grid Pattern */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(34, 211, 238, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(99, 39, 111, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 39, 111, 0.05) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
   background-size: 24px 24px;
-  background-image: radial-gradient(rgba(34, 211, 238, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(211, 34, 42, 0.06) 1px, transparent 1px);
 }
 
 /* Glow Elements */
 .cyan-glow {
-  filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.3));
+  filter: drop-shadow(0 0 15px rgba(211, 34, 42, 0.25));
 }
 
 .violet-glow {
-  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.25));
+  filter: drop-shadow(0 0 15px rgba(99, 39, 111, 0.25));
 }
 
 /* Transitions */
@@ -74,8 +76,8 @@
 }
 
 .transition-glow:hover {
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
-  border-color: rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 20px rgba(99, 39, 111, 0.15);
+  border-color: rgba(99, 39, 111, 0.3);
 }
 
 /* Typography styles */
@@ -86,14 +88,14 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   font-family: var(--font-inter);
-  background-color: #F7F9FC;
-  color: #0F172A;
+  background-color: #030712;
+  color: #F8FAFC;
   overflow-x: hidden;
 }
 
 /* Dark layout default fallback */
 .dark-theme {
-  background-color: #07111F;
+  background-color: #030712;
   color: #F8FAFC;
 }
 

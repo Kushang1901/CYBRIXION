@@ -27,6 +27,7 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import CrystalsBackground from '@/components/ui/CrystalsBackground';
 
 export default function HomePage() {
   return (
@@ -35,6 +36,7 @@ export default function HomePage() {
       
       {/* HERO SECTION */}
       <section className="relative pt-[120px] pb-24 md:pt-[150px] md:pb-32 bg-brand-dark dark-theme overflow-hidden bg-grid-pattern">
+        <CrystalsBackground />
         
         {/* Subtle cyan glow in background */}
         <div className="absolute top-1/4 right-[-10%] w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] pointer-events-none" />
@@ -264,48 +266,48 @@ export default function HomePage() {
       </section>
 
       {/* OUR DIRECTIVE */}
-      <section className="py-20 md:py-28 bg-[#F7F9FC]">
+      <section className="py-20 md:py-28 bg-[#030712] border-t border-slate-900">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">OUR DIRECTIVE</span>
-            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-brand-dark">
+            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">OUR DIRECTIVE</span>
+            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
               Built Around Clear Purpose
             </h2>
-            <p className="text-sm md:text-base text-text-light-secondary leading-relaxed">
+            <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
               We help the next generation of cybersecurity learners build practical skills.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-200">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800">
+              <div className="w-12 h-12 rounded-xl bg-brand-logo-red/15 flex items-center justify-center text-brand-logo-red">
                 <Shield className="w-6 h-6" />
               </div>
-              <h3 className="font-manrope font-bold text-xl text-brand-dark">Our Mission</h3>
-              <p className="text-sm leading-relaxed text-text-light-secondary">
+              <h3 className="font-manrope font-bold text-xl text-white">Our Mission</h3>
+              <p className="text-sm leading-relaxed text-text-dark-secondary">
                 Help the next generation of cybersecurity learners build practical understanding through structured and understandable learning.
               </p>
             </Card>
 
             {/* Card 2 */}
-            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-200">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800">
+              <div className="w-12 h-12 rounded-xl bg-brand-logo-purple/15 flex items-center justify-center text-brand-logo-purple">
                 <BookOpen className="w-6 h-6" />
               </div>
-              <h3 className="font-manrope font-bold text-xl text-brand-dark">Our Vision</h3>
-              <p className="text-sm leading-relaxed text-text-light-secondary">
+              <h3 className="font-manrope font-bold text-xl text-white">Our Vision</h3>
+              <p className="text-sm leading-relaxed text-text-dark-secondary">
                 Create a learning ecosystem where students can understand cybersecurity roles, tools, threats, defensive concepts, and career paths with confidence.
               </p>
             </Card>
 
             {/* Card 3 */}
-            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-200">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800">
+              <div className="w-12 h-12 rounded-xl bg-brand-logo-purple/15 flex items-center justify-center text-brand-logo-purple">
                 <Terminal className="w-6 h-6" />
               </div>
-              <h3 className="font-manrope font-bold text-xl text-brand-dark">Our Method</h3>
-              <ul className="space-y-2 text-sm text-text-light-secondary">
+              <h3 className="font-manrope font-bold text-xl text-white">Our Method</h3>
+              <ul className="space-y-2 text-sm text-text-dark-secondary">
                 <li className="flex items-center gap-2"><Check className="w-4.5 h-4.5 text-success" /> Learn by Doing</li>
                 <li className="flex items-center gap-2"><Check className="w-4.5 h-4.5 text-success" /> Strong Foundations First</li>
                 <li className="flex items-center gap-2"><Check className="w-4.5 h-4.5 text-success" /> Understand Before Tools</li>
@@ -318,10 +320,10 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE CYBRIXON */}
-      <section className="py-20 md:py-28 bg-[#07111F] text-white bg-dot-pattern border-t border-slate-800">
+      <section className="py-20 md:py-28 bg-[#050b16] text-white bg-dot-pattern border-t border-slate-900">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-cyan uppercase tracking-wider">WHY CHOOSE US</span>
+            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">WHY CHOOSE US</span>
             <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
               Structured to Deliver Competency
             </h2>
@@ -334,7 +336,7 @@ export default function HomePage() {
             
             {/* Feature 1 */}
             <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
                 <BookOpen className="w-5 h-5" />
               </div>
               <h4 className="font-manrope font-bold text-lg text-white">Structured Learning Path</h4>
@@ -345,7 +347,7 @@ export default function HomePage() {
 
             {/* Feature 2 */}
             <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
                 <Terminal className="w-5 h-5" />
               </div>
               <h4 className="font-manrope font-bold text-lg text-white">Practical Cyber Exposure</h4>
@@ -356,7 +358,7 @@ export default function HomePage() {
 
             {/* Feature 3 */}
             <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-10 h-10 rounded-lg bg-brand-logo-red/15 border border-brand-logo-red/30 flex items-center justify-center text-brand-logo-red">
                 <Cpu className="w-5 h-5" />
               </div>
               <h4 className="font-manrope font-bold text-lg text-white">Concept-First Principles</h4>
@@ -367,7 +369,7 @@ export default function HomePage() {
 
             {/* Feature 4 */}
             <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
                 <FileText className="w-5 h-5" />
               </div>
               <h4 className="font-manrope font-bold text-lg text-white">Guided Assignments</h4>
@@ -378,7 +380,7 @@ export default function HomePage() {
 
             {/* Feature 5 */}
             <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
                 <FileCode className="w-5 h-5" />
               </div>
               <h4 className="font-manrope font-bold text-lg text-white">Real Projects</h4>
@@ -389,7 +391,7 @@ export default function HomePage() {
 
             {/* Feature 6 */}
             <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-10 h-10 rounded-lg bg-brand-logo-red/15 border border-brand-logo-red/30 flex items-center justify-center text-brand-logo-red">
                 <Briefcase className="w-5 h-5" />
               </div>
               <h4 className="font-manrope font-bold text-lg text-white">Career Direction</h4>
@@ -403,127 +405,103 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED INTERNSHIP PROGRAMS */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-[#030712] border-t border-slate-900">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">FEATURED INTERNSHIPS</span>
-            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-brand-dark">
+            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">FEATURED INTERNSHIPS</span>
+            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
               Choose Your Cybersecurity Path
             </h2>
-            <p className="text-sm md:text-base text-text-light-secondary leading-relaxed">
+            <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
               We offer structured programs tailored to your current technical background and career objectives.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* 30-Day Card */}
-            <Card variant="light" hoverGlow className="flex flex-col border border-slate-200">
-              <div className="p-8 flex-1 flex flex-col gap-5">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Beginner Level</span>
-                  <span className="text-xs font-bold text-brand-blue bg-brand-blue/5 border border-brand-blue/10 px-3 py-1 rounded-full">30 Days</span>
-                </div>
-                <h3 className="font-manrope font-extrabold text-2xl text-brand-dark">30-Day Cybersecurity Internship</h3>
-                <p className="text-sm text-text-light-secondary leading-relaxed">
-                  A structured beginner-level path covering cybersecurity fundamentals, networking basics, operating systems, ethical principles, and introductory security tools.
-                </p>
-                <div className="pt-5 border-t border-slate-100 mt-auto space-y-3">
-                  <div className="flex items-center gap-2.5 text-xs text-text-light-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-success" />
-                    <span>4-Week Path</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-text-light-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-success" />
-                    <span>Weekly Assignments</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-text-light-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-success" />
-                    <span>1 Practical Mini Project</span>
-                  </div>
-                </div>
+            <Card variant="light" hoverGlow className="flex flex-col border border-slate-800/80 overflow-hidden bg-brand-elevated/40">
+              {/* Image Placeholder */}
+              <div className="w-full h-44 bg-slate-950/80 border-b border-slate-850 flex items-center justify-center text-text-dark-secondary relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/5 to-brand-logo-purple/10 opacity-30 group-hover:opacity-55 transition-opacity duration-300" />
+                <Shield className="w-10 h-10 text-slate-800 relative z-10 group-hover:scale-105 transition-transform duration-300" />
+                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-slate-600 tracking-wider">CYB_30_DEV</span>
               </div>
-              <div className="p-6 bg-slate-50 border-t border-slate-100 flex items-center">
-                <Button href="/internships/30-day-cybersecurity-internship" variant="primary" className="w-full">
-                  Learn Details
+              <div className="p-6 flex-1 flex flex-col gap-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Beginner Level</span>
+                  <span className="text-[10px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded-full">30 Days</span>
+                </div>
+                <h3 className="font-manrope font-bold text-lg text-white group-hover:text-brand-logo-red transition-colors">
+                  30-Day Cybersecurity Internship
+                </h3>
+                <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
+                  A structured beginner-level path covering cybersecurity fundamentals, networking basics, operating systems, and ethical scanning tools.
+                </p>
+              </div>
+              <div className="p-5 bg-slate-950/40 border-t border-slate-850 flex items-center">
+                <Button href="/internships/30-day-cybersecurity-internship" variant="primary" className="w-full justify-center">
+                  View Internship
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
             </Card>
 
             {/* 60-Day Card (MOST POPULAR) */}
-            <Card variant="light" hoverGlow className="flex flex-col border-2 border-brand-blue relative overflow-visible">
-              <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-brand-blue text-white text-[10px] font-bold font-manrope px-3.5 py-1 rounded-full uppercase tracking-wider">
+            <Card variant="light" hoverGlow className="flex flex-col border border-slate-800/80 overflow-hidden bg-brand-elevated/40 relative">
+              <div className="absolute top-2 right-2 bg-brand-logo-red text-white text-[8px] font-bold font-manrope px-2 py-0.5 rounded uppercase tracking-wider z-20">
                 Most Popular
               </div>
-              <div className="p-8 flex-1 flex flex-col gap-5">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Intermediate Level</span>
-                  <span className="text-xs font-bold text-brand-blue bg-brand-blue/5 border border-brand-blue/10 px-3 py-1 rounded-full">60 Days</span>
-                </div>
-                <h3 className="font-manrope font-extrabold text-2xl text-brand-dark">60-Day Cybersecurity Internship</h3>
-                <p className="text-sm text-text-light-secondary leading-relaxed">
-                  Build stronger foundations through network security, scanning concepts, web security, OWASP Top 10, log analysis, hands-on projects, and career guidance.
-                </p>
-                <div className="pt-5 border-t border-slate-100 mt-auto space-y-3">
-                  <div className="flex items-center gap-2.5 text-xs text-text-light-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-success" />
-                    <span>8-Week In-Depth Curriculum</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-text-light-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-success" />
-                    <span>2 Practical Projects</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-text-light-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-success" />
-                    <span>Resume Support & Interview Mocking</span>
-                  </div>
-                </div>
+              {/* Image Placeholder */}
+              <div className="w-full h-44 bg-slate-950/80 border-b border-slate-850 flex items-center justify-center text-text-dark-secondary relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/10 to-brand-logo-purple/15 opacity-40 group-hover:opacity-65 transition-opacity duration-300" />
+                <Shield className="w-10 h-10 text-slate-800 relative z-10 group-hover:scale-105 transition-transform duration-300" />
+                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-slate-600 tracking-wider">CYB_60_DEV</span>
               </div>
-              <div className="p-6 bg-slate-50 border-t border-slate-100 flex items-center">
-                <Button href="/internships/60-day-cybersecurity-internship" variant="primary" className="w-full">
-                  Enroll Now
+              <div className="p-6 flex-1 flex flex-col gap-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Intermediate Level</span>
+                  <span className="text-[10px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded-full">60 Days</span>
+                </div>
+                <h3 className="font-manrope font-bold text-lg text-white">
+                  60-Day Cybersecurity Internship
+                </h3>
+                <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
+                  Build stronger foundations through network security, scanning concepts, web security, OWASP Top 10, log analysis, and career support.
+                </p>
+              </div>
+              <div className="p-5 bg-slate-950/40 border-t border-slate-850 flex items-center">
+                <Button href="/internships/60-day-cybersecurity-internship" variant="primary" className="w-full justify-center">
+                  View Internship
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
             </Card>
 
             {/* 90-Day Card */}
-            <Card variant="dark" hoverGlow className="flex flex-col border border-slate-800/80 bg-brand-navy relative overflow-hidden bg-grid-pattern">
-              <div className="absolute top-0 right-[10%] w-[100px] h-[100px] bg-brand-violet/20 rounded-full blur-[20px]" />
-              <div className="p-8 flex-1 flex flex-col gap-5">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold text-brand-violet uppercase tracking-wider">Advanced Level</span>
-                  <span className="text-xs font-bold text-brand-violet bg-brand-violet/10 border border-brand-violet/20 px-3 py-1 rounded-full">90 Days</span>
-                </div>
-                <h3 className="font-manrope font-extrabold text-2xl text-white">90-Day Advanced Internship</h3>
-                <p className="text-sm text-text-dark-secondary leading-relaxed">
-                  Complete an advanced core cybersecurity foundation and proceed directly into one of three specialization tracks based on your career interests.
-                </p>
-                <div className="space-y-1.5">
-                  <span className="text-[10px] font-bold text-brand-cyan uppercase tracking-wider block">Specializations:</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    <Badge variant="cyan">SOC Analyst</Badge>
-                    <Badge variant="cyan">VAPT</Badge>
-                    <Badge variant="cyan">GRC</Badge>
-                  </div>
-                </div>
-                <div className="pt-4 border-t border-slate-800 mt-auto space-y-3">
-                  <div className="flex items-center gap-2.5 text-xs text-text-dark-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-cyan" />
-                    <span>12-Week Specialization Curriculum</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-text-dark-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-cyan" />
-                    <span>Major Portfolio Project</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-text-dark-primary font-medium">
-                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-cyan" />
-                    <span>Job Preparation & Placement Mapping</span>
-                  </div>
-                </div>
+            <Card variant="light" hoverGlow className="flex flex-col border border-slate-800/80 overflow-hidden bg-brand-elevated/40">
+              {/* Image Placeholder */}
+              <div className="w-full h-44 bg-slate-950/80 border-b border-slate-850 flex items-center justify-center text-text-dark-secondary relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/5 to-brand-logo-purple/20 opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
+                <Shield className="w-10 h-10 text-slate-800 relative z-10 group-hover:scale-105 transition-transform duration-300" />
+                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-slate-600 tracking-wider">CYB_90_DEV</span>
               </div>
-              <div className="p-6 bg-[#101E31] border-t border-slate-800 flex items-center">
-                <Button href="/internships/90-day-advanced-cybersecurity-internship" variant="secondary" className="w-full">
-                  Explore Specializations
+              <div className="p-6 flex-1 flex flex-col gap-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-[10px] font-bold text-brand-logo-purple uppercase tracking-wider">Advanced Level</span>
+                  <span className="text-[10px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded-full">90 Days</span>
+                </div>
+                <h3 className="font-manrope font-bold text-lg text-white">
+                  90-Day Advanced Internship
+                </h3>
+                <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
+                  Complete advanced core security training and proceed directly into specialized tracks: SOC Analyst, VAPT, or GRC operations.
+                </p>
+              </div>
+              <div className="p-5 bg-slate-950/40 border-t border-slate-850 flex items-center">
+                <Button href="/internships/90-day-advanced-cybersecurity-internship" variant="primary" className="w-full justify-center">
+                  View Internship
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
             </Card>
@@ -533,14 +511,14 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20 md:py-28 bg-[#F7F9FC] border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-[#030712] border-t border-slate-900">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">PROCESS ROADMAP</span>
-            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-brand-dark">
+            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">PROCESS ROADMAP</span>
+            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
               Your Path From Enrollment to Certificate
             </h2>
-            <p className="text-sm md:text-base text-text-light-secondary leading-relaxed">
+            <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
               A transparent, step-by-step layout of how you progress through our programs.
             </p>
           </div>
@@ -548,173 +526,125 @@ export default function HomePage() {
           {/* Desktop Connected Steps */}
           <div className="hidden lg:grid grid-cols-9 gap-4 items-start relative mt-10">
             {/* Step lines back */}
-            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-slate-200 -z-0" />
+            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-slate-800 -z-0" />
             
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">1</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Explore</h5>
-              <span className="text-[10px] text-text-light-secondary">Choose a Program</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">1</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Explore</h5>
+              <span className="text-[10px] text-text-dark-secondary">Choose a Program</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">2</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Apply</h5>
-              <span className="text-[10px] text-text-light-secondary">Fill Application</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">2</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Apply</h5>
+              <span className="text-[10px] text-text-dark-secondary">Fill Application</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">3</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Access</h5>
-              <span className="text-[10px] text-text-light-secondary">Enter Dashboard</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">3</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Access</h5>
+              <span className="text-[10px] text-text-dark-secondary">Enter Dashboard</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">4</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Learn</h5>
-              <span className="text-[10px] text-text-light-secondary">Structured Lessons</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">4</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Learn</h5>
+              <span className="text-[10px] text-text-dark-secondary">Structured Lessons</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">5</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Practice</h5>
-              <span className="text-[10px] text-text-light-secondary">Submit Tasks</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">5</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Practice</h5>
+              <span className="text-[10px] text-text-dark-secondary">Submit Tasks</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">6</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Build</h5>
-              <span className="text-[10px] text-text-light-secondary">Compile Projects</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">6</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Build</h5>
+              <span className="text-[10px] text-text-dark-secondary">Compile Projects</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">7</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Track</h5>
-              <span className="text-[10px] text-text-light-secondary">View Completion</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">7</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Track</h5>
+              <span className="text-[10px] text-text-dark-secondary">View Completion</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">8</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Audit</h5>
-              <span className="text-[10px] text-text-light-secondary">Fulfill Criteria</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">8</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Audit</h5>
+              <span className="text-[10px] text-text-dark-secondary">Fulfill Criteria</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-cyan text-brand-dark font-manrope font-bold text-sm flex items-center justify-center shadow-md border-2 border-brand-blue">9</div>
-              <h5 className="font-manrope font-bold text-xs text-brand-dark mt-3 mb-1">Verify</h5>
-              <span className="text-[10px] text-text-light-secondary">Earn Certificate</span>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-red text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md border-2 border-brand-logo-purple">9</div>
+              <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Verify</h5>
+              <span className="text-[10px] text-text-dark-secondary">Earn Certificate</span>
             </div>
           </div>
 
           {/* Mobile vertical layout */}
-          <div className="lg:hidden flex flex-col gap-6 pl-4 border-l-2 border-slate-200 ml-4">
+          <div className="lg:hidden flex flex-col gap-6 pl-4 border-l-2 border-slate-800 ml-4">
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">1. Explore a Program</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Select a 30-day, 60-day, or 90-day internship path.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">1. Explore a Program</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Select a 30-day, 60-day, or 90-day internship path.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">2. Apply or Enroll</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Register your student account details and program preference.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">2. Apply or Enroll</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Register your student account details and program preference.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">3. Access Your Dashboard</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Get immediate portal access to your active coursework checklist.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">3. Access Your Dashboard</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Get immediate portal access to your active coursework checklist.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">4. Learn Through Structured Modules</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Access readable technical lessons and download guides directly.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">4. Learn Through Structured Modules</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Access readable technical lessons and download guides directly.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">5. Complete Weekly Assignments</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Apply your module knowledge on practical worksheets.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">5. Complete Weekly Assignments</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Apply your module knowledge on practical worksheets.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">6. Compile Portfolio Projects</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Author standard network scans and audit reports within lab environments.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">6. Compile Portfolio Projects</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Author standard network scans and audit reports within lab environments.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">7. Track Progress</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Monitor completion metrics in real time.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">7. Track Progress</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Monitor completion metrics in real time.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">8. Complete Requirements</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Validate that all core checklists have been graded successfully.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <h5 className="font-manrope font-bold text-sm text-white">8. Complete Requirements</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Validate that all core checklists have been graded successfully.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-cyan" />
-              <h5 className="font-manrope font-bold text-sm text-brand-dark">9. Receive Verified Certificate</h5>
-              <p className="text-xs text-text-light-secondary mt-0.5">Gain a public digital credential with a secure verification serial.</p>
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-red" />
+              <h5 className="font-manrope font-bold text-sm text-white">9. Receive Verified Certificate</h5>
+              <p className="text-xs text-text-dark-secondary mt-0.5">Gain a public digital credential with a secure verification serial.</p>
             </div>
           </div>
-        </Container>
-      </section>
-
-      {/* TOOLS AND CONCEPTS */}
-      <section className="py-20 md:py-26 bg-[#07111F] text-white border-t border-slate-800 bg-grid-pattern">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-cyan uppercase tracking-wider">CONCEPTS & TOOLSETS</span>
-            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
-              Enterprise Tools and Methodologies Covered
-            </h2>
-            <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
-              We focus on standard security operations toolsets used by corporate security centers.
-            </p>
-          </div>
-
-          {/* Tools Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-            {[
-              { name: 'Nmap', desc: 'Port Scanning' },
-              { name: 'Wireshark', desc: 'Packet Analysis' },
-              { name: 'Burp Suite', desc: 'Web App Pentesting' },
-              { name: 'Linux OS', desc: 'CLI Hardening' },
-              { name: 'Windows Security', desc: 'System Controls' },
-              { name: 'OWASP Top 10', desc: 'Web Flaws mapping' },
-              { name: 'SIEM Concepts', desc: 'Event Correlating' },
-              { name: 'Wazuh SIEM', desc: 'Host Alerting' },
-              { name: 'MITRE ATT&CK', desc: 'Tactics Registry' },
-              { name: 'Log Analysis', desc: 'Traffic Auditing' },
-              { name: 'Risk Assessment', desc: 'GRC Mitigation' },
-              { name: 'ISO 27001', desc: 'Compliance Frame' }
-            ].map((tool, idx) => (
-              <div 
-                key={idx} 
-                className="bg-[#101E31]/50 border border-slate-850 p-4 rounded-xl flex flex-col items-center text-center transition-all hover:bg-[#101E31] hover:border-brand-cyan/20 cursor-default"
-              >
-                <div className="w-9 h-9 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan mb-3">
-                  <Terminal className="w-4 h-4" />
-                </div>
-                <span className="font-manrope font-bold text-sm text-white">{tool.name}</span>
-                <span className="text-[10px] text-text-dark-secondary mt-1">{tool.desc}</span>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-xs text-text-dark-secondary mt-8 italic">
-            *Topics and tools vary by internship program and selected specialization track.
-          </p>
         </Container>
       </section>
 
       {/* LEARNING EXPERIENCE */}
-      <section className="py-20 md:py-28 bg-white border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-brand-navy border-t border-slate-900">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-5 flex flex-col gap-5 text-left">
-              <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">LEARNING CONTEXT</span>
-              <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-brand-dark leading-tight">
+              <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">LEARNING CONTEXT</span>
+              <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white leading-tight">
                 An Educational Ecosystem Focused on Practice
               </h2>
-              <p className="text-sm md:text-base text-text-light-secondary leading-relaxed">
+              <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
                 CYBRIXON currently delivers course modules and guides via structured text documents, checklists, presentations, and live Q&A doubt clearance sessions. 
               </p>
               
@@ -731,34 +661,34 @@ export default function HomePage() {
                     <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 flex-shrink-0">
                       <Check className="w-3 h-3" />
                     </div>
-                    <span className="text-xs md:text-sm font-semibold text-text-light-primary">{item}</span>
+                    <span className="text-xs md:text-sm font-semibold text-text-dark-primary">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-slate-50 border border-slate-250 rounded-xl">
-                <span className="text-xs font-bold text-brand-blue block mb-1">Concept-First Method</span>
-                <p className="text-xs text-text-light-secondary leading-relaxed">
+              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
+                <span className="text-xs font-bold text-brand-logo-purple block mb-1">Concept-First Method</span>
+                <p className="text-xs text-text-dark-secondary leading-relaxed">
                   We verify that you understand standard transport layer handshakes and subnet architectures prior to demonstrating automated penetration tools.
                 </p>
               </div>
-              <div className="p-6 bg-slate-50 border border-slate-250 rounded-xl">
-                <span className="text-xs font-bold text-brand-blue block mb-1">Zero Stock Photography</span>
-                <p className="text-xs text-text-light-secondary leading-relaxed">
+              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
+                <span className="text-xs font-bold text-brand-logo-purple block mb-1">Zero Stock Photography</span>
+                <p className="text-xs text-text-dark-secondary leading-relaxed">
                   All graphics are conceptual flowcharts, actual commands, and realistic dashboard panels designed to simulate developer and security analyst terminals.
                 </p>
               </div>
-              <div className="p-6 bg-slate-50 border border-slate-250 rounded-xl">
-                <span className="text-xs font-bold text-brand-blue block mb-1">Ethics & Safety Warnings</span>
-                <p className="text-xs text-text-light-secondary leading-relaxed">
+              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
+                <span className="text-xs font-bold text-brand-logo-purple block mb-1">Ethics & Safety Warnings</span>
+                <p className="text-xs text-text-dark-secondary leading-relaxed">
                   Every technical scanning module highlights the requirements of legal permissions and local lab environments to prevent unintentional computer law breaches.
                 </p>
               </div>
-              <div className="p-6 bg-slate-50 border border-slate-250 rounded-xl">
-                <span className="text-xs font-bold text-brand-blue block mb-1">No Video Stream Promises</span>
-                <p className="text-xs text-text-light-secondary leading-relaxed">
+              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
+                <span className="text-xs font-bold text-brand-logo-purple block mb-1">No Video Stream Promises</span>
+                <p className="text-xs text-text-dark-secondary leading-relaxed">
                   Our core format focuses on readable text lessons, references, and scheduled live meetings. Recorded video streams are not featured as currently available resources.
                 </p>
               </div>
@@ -819,93 +749,9 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* CERTIFICATE PREVIEW */}
-      <section className="py-20 md:py-28 bg-[#07111F] text-white border-t border-slate-800 bg-dot-pattern">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-5 flex flex-col gap-5 text-left">
-              <span className="text-xs font-bold text-brand-cyan uppercase tracking-wider">CREDENTIALS</span>
-              <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white leading-tight">
-                Earn a Verifiable cybersecurity Credential
-              </h2>
-              <p className="text-sm text-text-dark-secondary leading-relaxed">
-                Upon meeting program criteria—completing modules, scoring on assignments, and passing review audits—you receive a digital certificate containing a unique registration ID.
-              </p>
-              <div className="p-4 bg-brand-navy border border-slate-800 rounded-xl text-xs space-y-2">
-                <span className="font-semibold text-brand-cyan block">Accreditation Advisory Notice</span>
-                <p className="text-text-dark-secondary leading-relaxed">
-                  CYBRIXON certificates represent technical competency benchmarks and structured internship completion. They do not constitute official university accreditation or government degrees.
-                </p>
-              </div>
-              <div className="flex gap-4 mt-2">
-                <Button href="/certificate-verification" variant="outline">
-                  Verify a Certificate
-                </Button>
-              </div>
-            </div>
-
-            {/* Premium Certificate Preview Layout */}
-            <div className="lg:col-span-7 flex justify-center">
-              <div className="w-full max-w-[560px] bg-slate-900 border-4 border-slate-800 rounded-xl p-8 relative shadow-2xl overflow-hidden bg-grid-pattern">
-                
-                {/* Accent cyan lines */}
-                <div className="absolute top-0 left-0 w-2 h-full bg-brand-cyan" />
-                
-                <div className="flex justify-between items-start mb-8">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-5 h-5 text-brand-cyan" />
-                    <span className="font-manrope font-bold text-xs tracking-wide text-white">CYBRIXON</span>
-                  </div>
-                  <span className="text-[9px] uppercase tracking-wider text-brand-cyan border border-brand-cyan/20 px-2 py-0.5 rounded">
-                    INTERNSHIP PROGRAM
-                  </span>
-                </div>
-
-                <div className="text-center flex flex-col items-center gap-4 my-6">
-                  <span className="text-[10px] uppercase tracking-widest text-text-dark-secondary font-bold">This is to certify that</span>
-                  <h3 className="font-manrope font-extrabold text-2xl text-white tracking-tight border-b border-slate-800 pb-2 w-full max-w-sm">
-                    Aarav Sharma
-                  </h3>
-                  <p className="text-xs text-text-dark-secondary leading-relaxed max-w-sm">
-                    has successfully completed the requirements for the
-                  </p>
-                  <h4 className="font-manrope font-bold text-base text-brand-cyan">
-                    60-Day Cybersecurity Internship
-                  </h4>
-                  <p className="text-[10px] text-text-dark-secondary leading-relaxed">
-                    comprising Network Port Audits, Web Security Assessment, and GRC policies.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-slate-800/80 flex justify-between items-end">
-                  <div className="text-left">
-                    <span className="text-[9px] text-text-dark-secondary uppercase block">Issue Date</span>
-                    <span className="text-xs font-semibold text-white">July 5, 2026</span>
-                  </div>
-                  
-                  {/* Mock QR / ID block */}
-                  <div className="text-right flex flex-col items-end gap-1.5">
-                    <div className="w-8 h-8 bg-white p-0.5 rounded flex items-center justify-center">
-                      <div className="w-full h-full bg-brand-dark" /> {/* Dummy QR center */}
-                    </div>
-                    <div>
-                      <span className="text-[8px] text-text-dark-secondary uppercase block">Certificate ID</span>
-                      <span className="text-[10px] font-mono text-brand-cyan">CYB-2026-000145</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </Container>
-      </section>
-
       {/* FINAL CTA */}
-      <section className="py-20 md:py-26 bg-brand-dark text-white border-t border-slate-800 relative z-10 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-blue/15 rounded-full blur-[100px] pointer-events-none" />
+      <section className="py-20 md:py-26 bg-black text-white border-t border-slate-900 relative z-10 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-logo-purple/15 rounded-full blur-[100px] pointer-events-none" />
         <Container>
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 relative z-10">
             <h2 className="text-3xl md:text-5xl font-manrope font-extrabold tracking-tight text-white leading-tight">

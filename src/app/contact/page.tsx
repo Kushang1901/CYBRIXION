@@ -15,8 +15,7 @@ import Footer from '@/components/layout/Footer';
 const contactFormSchema = z.object({
   fullName: z.string().min(3, { message: 'Full Name must be at least 3 characters.' }),
   email: z.string().email({ message: 'Provide a valid email address.' }),
-  phone: z.string().optional(),
-  subject: z.string().min(1, { message: 'Select a subject inquiry category.' }),
+  phone: z.string().min(10, { message: 'Provide a valid phone number (min 10 digits).' }),
   message: z.string().min(10, { message: 'Message details must be at least 10 characters.' })
 });
 
@@ -36,7 +35,6 @@ export default function ContactPage() {
       fullName: '',
       email: '',
       phone: '',
-      subject: 'Program Inquiry',
       message: ''
     }
   });
@@ -54,8 +52,8 @@ export default function ContactPage() {
       <Header />
       
       {/* PAGE HERO */}
-      <section className="relative pt-[120px] pb-16 bg-[#07111F] text-white bg-grid-pattern border-b border-slate-800">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-brand-cyan/10 rounded-full blur-[90px] pointer-events-none" />
+      <section className="relative pt-[120px] pb-16 bg-[#030712] text-white bg-grid-pattern border-b border-slate-900">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-brand-logo-purple/10 rounded-full blur-[90px] pointer-events-none" />
         <Container className="relative z-10 text-center max-w-3xl mx-auto flex flex-col gap-4">
           <Badge variant="cyan" className="w-fit mx-auto">CONTACT SUPPORT</Badge>
           <h1 className="text-4xl md:text-5xl font-manrope font-extrabold text-white tracking-tight">
@@ -68,7 +66,7 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT BODY */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#050b16] text-white border-t border-slate-900">
         <Container>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -76,11 +74,11 @@ export default function ContactPage() {
             {/* LEFT COLUMN: 60% Form */}
             <div className="lg:col-span-7">
               {isSubmitted ? (
-                <div className="p-8 bg-emerald-50 border border-emerald-200 rounded-2xl flex flex-col gap-4 text-emerald-800">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+                <div className="p-8 bg-emerald-950/20 border border-emerald-800/80 rounded-2xl flex flex-col gap-4 text-emerald-450">
+                  <CheckCircle2 className="w-10 h-10 text-emerald-500" />
                   <div>
-                    <h4 className="font-manrope font-extrabold text-lg text-emerald-900 mb-1">Inquiry Submitted Successfully</h4>
-                    <p className="text-xs md:text-sm leading-relaxed">
+                    <h4 className="font-manrope font-extrabold text-lg text-white mb-1">Inquiry Submitted Successfully</h4>
+                    <p className="text-xs md:text-sm leading-relaxed text-text-dark-secondary">
                       Thank you for contacting CYBRIXON. Our support team has logged your inquiry and will follow up at the registered email address within 24 business hours.
                     </p>
                   </div>
@@ -88,26 +86,26 @@ export default function ContactPage() {
                     type="button" 
                     variant="outline" 
                     size="sm" 
-                    className="w-fit mt-2 border-emerald-300 text-emerald-900 hover:bg-emerald-100"
+                    className="w-fit mt-2 border-emerald-800 text-white hover:bg-emerald-950/30"
                     onClick={() => setIsSubmitted(false)}
                   >
                     Submit Another Inquiry
                   </Button>
                 </div>
               ) : (
-                <Card variant="light" className="p-8 border border-slate-200 shadow-md">
-                  <h3 className="font-manrope font-bold text-xl text-brand-dark mb-6">Send an Inquiry</h3>
+                <Card variant="light" className="p-8 border border-slate-800 bg-brand-elevated/40 backdrop-blur-md">
+                  <h3 className="font-manrope font-bold text-xl text-white mb-6">Send an Inquiry</h3>
                   
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     
                     {/* Full Name */}
                     <div className="flex flex-col gap-1.5">
-                      <label htmlFor="fullName" className="text-xs font-bold text-slate-700 uppercase tracking-wide">Full Name *</label>
+                      <label htmlFor="fullName" className="text-xs font-bold text-slate-400 uppercase tracking-wide">Full Name *</label>
                       <input 
                         id="fullName" 
                         type="text" 
                         placeholder="e.g. Aarav Sharma"
-                        className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm focus:border-brand-blue"
+                        className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple"
                         {...register('fullName')}
                       />
                       {errors.fullName && <span className="text-[10px] text-error font-medium">{errors.fullName.message}</span>}
@@ -117,12 +115,12 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       {/* Email */}
                       <div className="flex flex-col gap-1.5">
-                        <label htmlFor="email" className="text-xs font-bold text-slate-700 uppercase tracking-wide">Email Address *</label>
+                        <label htmlFor="email" className="text-xs font-bold text-slate-400 uppercase tracking-wide">Email Address *</label>
                         <input 
                           id="email" 
                           type="email" 
                           placeholder="e.g. aarav.sharma@gmail.com"
-                          className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm focus:border-brand-blue"
+                          className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple"
                           {...register('email')}
                         />
                         {errors.email && <span className="text-[10px] text-error font-medium">{errors.email.message}</span>}
@@ -130,50 +128,33 @@ export default function ContactPage() {
 
                       {/* Phone */}
                       <div className="flex flex-col gap-1.5">
-                        <label htmlFor="phone" className="text-xs font-bold text-slate-700 uppercase tracking-wide">Phone Number (Optional)</label>
+                        <label htmlFor="phone" className="text-xs font-bold text-slate-400 uppercase tracking-wide">Phone Number *</label>
                         <input 
                           id="phone" 
                           type="tel" 
-                          placeholder="e.g. +91 98765 43210"
-                          className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm focus:border-brand-blue"
+                          placeholder="e.g. 9876543210"
+                          className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple"
                           {...register('phone')}
                         />
+                        {errors.phone && <span className="text-[10px] text-error font-medium">{errors.phone.message}</span>}
                       </div>
-                    </div>
-
-                    {/* Subject */}
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="subject" className="text-xs font-bold text-slate-700 uppercase tracking-wide">Inquiry Subject *</label>
-                      <select 
-                        id="subject"
-                        className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm focus:border-brand-blue"
-                        {...register('subject')}
-                      >
-                        <option value="Program Inquiry">Program Inquiry / Admissions</option>
-                        <option value="Enrollment Support">Enrollment / Payment Support</option>
-                        <option value="Technical Support">Technical Dashboard Support</option>
-                        <option value="Certificate Query">Certificate Verification Query</option>
-                        <option value="Partnership">Corporate Partnership</option>
-                        <option value="Other">Other Category</option>
-                      </select>
-                      {errors.subject && <span className="text-[10px] text-error font-medium">{errors.subject.message}</span>}
                     </div>
 
                     {/* Message */}
                     <div className="flex flex-col gap-1.5">
-                      <label htmlFor="message" className="text-xs font-bold text-slate-700 uppercase tracking-wide">Message Details *</label>
+                      <label htmlFor="message" className="text-xs font-bold text-slate-400 uppercase tracking-wide">Message Details *</label>
                       <textarea 
                         id="message" 
                         rows={5}
                         placeholder="Write your question details here..."
-                        className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm focus:border-brand-blue resize-y"
+                        className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple resize-y"
                         {...register('message')}
                       />
                       {errors.message && <span className="text-[10px] text-error font-medium">{errors.message.message}</span>}
                     </div>
 
                     {/* Rate Limit Note */}
-                    <div className="p-3 bg-slate-100 rounded-lg text-[10px] text-text-light-secondary leading-normal flex items-start gap-2">
+                    <div className="p-3 bg-slate-950/50 border border-slate-850 rounded-lg text-[10px] text-text-dark-secondary leading-normal flex items-start gap-2">
                       <AlertTriangle className="w-4 h-4 text-slate-500 flex-shrink-0" />
                       Our contact endpoints are configured with rate limit safeguards to prevent automated spamming. Only submit valid technical and admissions inquiries.
                     </div>
@@ -181,7 +162,7 @@ export default function ContactPage() {
                     <Button 
                       type="submit" 
                       variant="primary" 
-                      className="w-full flex justify-center items-center" 
+                      className="w-full flex justify-center items-center cursor-pointer" 
                       disabled={isSubmitting}
                       glow
                     >

@@ -158,156 +158,133 @@ export default function InternshipDetailPage({ params }: PageProps) {
       </section>
 
       {/* CORE INFO */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#030712] text-white border-t border-slate-900">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="max-w-4xl mx-auto flex flex-col gap-10">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 flex flex-col gap-10">
-              
-              {/* Overview */}
-              <div>
-                <h3 className="font-manrope font-extrabold text-xl text-brand-dark mb-4">Program Overview</h3>
-                <p className="text-sm text-text-light-secondary leading-relaxed">
-                  Our {program.title} focuses on delivering technical clarity. Rather than requiring candidates to simply memorize scanning commands, we walk them through the structural architecture of networks, operating systems, and payloads. This allows students to build critical troubleshooting and diagnostic skills necessary for corporate security analyst positions.
-                </p>
-              </div>
+            {/* Overview */}
+            <div>
+              <h3 className="font-manrope font-extrabold text-xl text-white mb-4">Program Overview</h3>
+              <p className="text-sm text-text-dark-secondary leading-relaxed mb-6">
+                Our {program.title} focuses on delivering technical clarity. Rather than requiring candidates to simply memorize scanning commands, we walk them through the structural architecture of networks, operating systems, and payloads. This allows students to build critical troubleshooting and diagnostic skills necessary for corporate security analyst positions.
+              </p>
 
-              {/* Specializations Note for 90-day */}
-              {program.id === 'prog-90-day' && (
-                <div className="bg-[#F7F9FC] border border-slate-200 p-6 rounded-xl space-y-4">
-                  <h4 className="font-manrope font-bold text-base text-brand-dark">Phase 2 Specialization Pathways</h4>
-                  <p className="text-xs text-text-light-secondary leading-relaxed">
-                    All students complete a common cybersecurity foundation block in the first 4 weeks, and then proceed directly into one of the following tracks for weeks 5-12:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="p-4 bg-white border border-slate-200 rounded-lg">
-                      <span className="text-xs font-bold text-brand-blue block mb-1">SOC Analyst Track</span>
-                      <p className="text-[10px] text-text-light-secondary leading-normal">Log ingestion, MITRE ATT&CK maps, wazuh alerts, and threat triage.</p>
-                    </div>
-                    <div className="p-4 bg-white border border-slate-200 rounded-lg">
-                      <span className="text-xs font-bold text-brand-blue block mb-1">VAPT Track</span>
-                      <p className="text-[10px] text-text-light-secondary leading-normal">Web scanning, Burp Suite intercept, OWASP checks, and audit logging.</p>
-                    </div>
-                    <div className="p-4 bg-white border border-slate-200 rounded-lg">
-                      <span className="text-xs font-bold text-brand-blue block mb-1">GRC Track</span>
-                      <p className="text-[10px] text-text-light-secondary leading-normal">ISO 27001 scopes, risk matrix registers, policy drafting, and GDPR checks.</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* What you will learn */}
-              <div>
-                <h3 className="font-manrope font-extrabold text-xl text-brand-dark mb-4">What You Will Learn</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {programInfo.outcomes.map((outcome, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mt-0.5 flex-shrink-0">
-                        <Check className="w-3 h-3" />
-                      </div>
-                      <span className="text-xs md:text-sm text-text-light-primary leading-relaxed">{outcome}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Curriculum Accordion */}
-              <div>
-                <h3 className="font-manrope font-extrabold text-xl text-brand-dark mb-2">Program Curriculum</h3>
-                <p className="text-xs text-text-light-secondary mb-6">
-                  Click on modules to view week breakdowns and lesson rosters.
-                </p>
-                
-                <div className="space-y-4">
-                  {programModules.map((module) => {
-                    const isExpanded = !!expandedModules[module.id];
-                    const moduleLessons = mockLessons.filter((l) => l.moduleId === module.id);
-                    
-                    return (
-                      <div 
-                        key={module.id} 
-                        className="border border-slate-200 rounded-xl overflow-hidden shadow-sm"
-                      >
-                        {/* Header trigger */}
-                        <button
-                          onClick={() => toggleModule(module.id)}
-                          className="w-full px-5 py-4 bg-slate-50 flex items-center justify-between hover:bg-slate-100/80 transition-colors text-left cursor-pointer"
-                        >
-                          <div className="flex items-center gap-3">
-                            <span className="text-xs font-bold text-brand-blue bg-brand-blue/5 border border-brand-blue/10 px-2.5 py-0.5 rounded">
-                              Week {module.weekNumber}
-                            </span>
-                            <h4 className="font-manrope font-bold text-sm md:text-base text-brand-dark">
-                              {module.title}
-                            </h4>
-                          </div>
-                          {isExpanded ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
-                        </button>
-
-                        {/* Content roster */}
-                        {isExpanded && (
-                          <div className="p-4 bg-white border-t border-slate-150 divide-y divide-slate-100">
-                            {moduleLessons.length > 0 ? (
-                              moduleLessons.map((lesson) => (
-                                <div key={lesson.id} className="py-2.5 flex items-center justify-between text-xs text-text-light-primary">
-                                  <div className="flex items-center gap-2">
-                                    <BookOpen className="w-3.5 h-3.5 text-slate-400" />
-                                    <span className="font-medium">{lesson.title}</span>
-                                  </div>
-                                  <div className="flex items-center gap-1.5 text-text-light-secondary font-medium">
-                                    <Lock className="w-3 h-3 text-slate-400" />
-                                    <span>Locked</span>
-                                  </div>
-                                </div>
-                              ))
-                            ) : (
-                              <div className="py-2 text-xs text-text-light-secondary italic flex items-center gap-2">
-                                <Lock className="w-3.5 h-3.5 text-slate-400" />
-                                Lesson outline is protected. Enroll in this program to view lesson content.
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-            </div>
-
-            {/* Right Side Info Cards */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              
-              <Card variant="light" className="p-6 border border-slate-200 flex flex-col gap-4">
-                <h4 className="font-manrope font-bold text-base text-brand-dark border-b border-slate-100 pb-2">Program Prerequisites</h4>
-                <p className="text-xs text-text-light-secondary leading-relaxed">
-                  {programInfo.prerequisites}
-                </p>
-              </Card>
-
-              <Card variant="light" className="p-6 border border-slate-200 flex flex-col gap-4">
-                <h4 className="font-manrope font-bold text-base text-brand-dark border-b border-slate-100 pb-2">Candidate Eligibility</h4>
-                <p className="text-xs text-text-light-secondary leading-relaxed">
-                  {programInfo.eligibility}
-                </p>
-              </Card>
-
-              <Card variant="light" className="p-6 border border-slate-200 flex flex-col gap-4">
-                <h4 className="font-manrope font-bold text-base text-brand-dark border-b border-slate-100 pb-2">Learning Format</h4>
-                <p className="text-xs text-text-light-secondary leading-relaxed font-medium mb-1">
+              {/* Shipped Learning Format details */}
+              <div className="p-5 rounded-xl border border-slate-800/80 bg-brand-elevated/40 backdrop-blur-md flex flex-col gap-3">
+                <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider block">Learning Format</span>
+                <p className="text-xs text-text-dark-secondary leading-relaxed">
                   {programInfo.learningFormat}
                 </p>
-                <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-3 text-amber-800">
-                  <AlertTriangle className="w-5 h-5 flex-shrink-0 text-amber-600 mt-0.5" />
-                  <div className="text-xs">
+                <div className="p-3.5 bg-brand-logo-red/5 border border-brand-logo-red/10 rounded-lg flex gap-3 text-brand-logo-red mt-1">
+                  <AlertTriangle className="w-4.5 h-4.5 flex-shrink-0 mt-0.5" />
+                  <div className="text-[10px]">
                     <span className="font-bold block mb-0.5">Video Resource Disclaimer</span>
                     Our core curriculum is text-based. Live webinars are scheduled to support your projects, but recorded video playback is not offered.
                   </div>
                 </div>
-              </Card>
+              </div>
+            </div>
 
+            {/* Specializations Note for 90-day */}
+            {program.id === 'prog-90-day' && (
+              <div className="bg-[#050b16] border border-slate-800 p-6 rounded-xl space-y-4">
+                <h4 className="font-manrope font-bold text-base text-white">Phase 2 Specialization Pathways</h4>
+                <p className="text-xs text-text-dark-secondary leading-relaxed">
+                  All students complete a common cybersecurity foundation block in the first 4 weeks, and then proceed directly into one of the following tracks for weeks 5-12:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+                    <span className="text-xs font-bold text-brand-logo-purple block mb-1">SOC Analyst Track</span>
+                    <p className="text-[10px] text-text-dark-secondary leading-normal">Log ingestion, MITRE ATT&CK maps, wazuh alerts, and threat triage.</p>
+                  </div>
+                  <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+                    <span className="text-xs font-bold text-brand-logo-purple block mb-1">VAPT Track</span>
+                    <p className="text-[10px] text-text-dark-secondary leading-normal">Web scanning, Burp Suite intercept, OWASP checks, and audit logging.</p>
+                  </div>
+                  <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+                    <span className="text-xs font-bold text-brand-logo-purple block mb-1">GRC Track</span>
+                    <p className="text-[10px] text-text-dark-secondary leading-normal">ISO 27001 scopes, risk matrix registers, policy drafting, and GDPR checks.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* What you will learn */}
+            <div>
+              <h3 className="font-manrope font-extrabold text-xl text-white mb-4">What You Will Learn</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {programInfo.outcomes.map((outcome, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mt-0.5 flex-shrink-0">
+                      <Check className="w-3 h-3" />
+                    </div>
+                    <span className="text-xs md:text-sm text-text-dark-primary leading-relaxed">{outcome}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Curriculum Accordion */}
+            <div>
+              <h3 className="font-manrope font-extrabold text-xl text-white mb-2">Program Curriculum</h3>
+              <p className="text-xs text-text-dark-secondary mb-6">
+                Click on modules to view week breakdowns and lesson rosters.
+              </p>
+              
+              <div className="space-y-4">
+                {programModules.map((module) => {
+                  const isExpanded = !!expandedModules[module.id];
+                  const moduleLessons = mockLessons.filter((l) => l.moduleId === module.id);
+                  
+                  return (
+                    <div 
+                      key={module.id} 
+                      className="border border-slate-800 rounded-xl overflow-hidden shadow-sm"
+                    >
+                      {/* Header trigger */}
+                      <button
+                        onClick={() => toggleModule(module.id)}
+                        className="w-full px-5 py-4 bg-slate-900/40 flex items-center justify-between hover:bg-slate-900/60 transition-colors text-left cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded">
+                            Week {module.weekNumber}
+                          </span>
+                          <h4 className="font-manrope font-bold text-sm md:text-base text-white">
+                            {module.title}
+                          </h4>
+                        </div>
+                        {isExpanded ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
+                      </button>
+
+                      {/* Content roster */}
+                      {isExpanded && (
+                        <div className="p-4 bg-black/30 border-t border-slate-850 divide-y divide-slate-850">
+                          {moduleLessons.length > 0 ? (
+                            moduleLessons.map((lesson) => (
+                              <div key={lesson.id} className="py-2.5 flex items-center justify-between text-xs text-text-dark-primary">
+                                <div className="flex items-center gap-2">
+                                  <BookOpen className="w-3.5 h-3.5 text-slate-500" />
+                                  <span className="font-medium">{lesson.title}</span>
+                                </div>
+                                <div className="flex items-center gap-1.5 text-text-dark-secondary font-medium">
+                                  <Lock className="w-3 h-3 text-slate-550" />
+                                  <span>Locked</span>
+                                </div>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="py-2 text-xs text-text-dark-secondary italic flex items-center gap-2">
+                              <Lock className="w-3.5 h-3.5 text-slate-500" />
+                              Lesson outline is protected. Enroll in this program to view lesson content.
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
           </div>
