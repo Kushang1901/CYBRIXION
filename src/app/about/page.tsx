@@ -18,7 +18,17 @@ import {
   Layers,
   Zap,
   Eye,
-  Sliders
+  Sliders,
+  ArrowRight,
+  ChevronDown,
+  Rocket,
+  Brain,
+  Lock,
+  TrendingUp,
+  FileCode,
+  Briefcase,
+  FileText,
+  Users
 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
@@ -29,16 +39,15 @@ import Footer from '@/components/layout/Footer';
 import CrystalsBackground from '@/components/ui/CrystalsBackground';
 
 export default function AboutPage() {
-  const [activeConsole, setActiveConsole] = useState<'mission' | 'vision' | 'method'>('mission');
 
   return (
     <>
       <Header />
       
       {/* PAGE HERO */}
-      <section className="relative pt-[120px] pb-16 bg-[#030712] text-white bg-grid-pattern border-b border-slate-900 overflow-hidden">
+      <section className="relative pt-[120px] pb-16 bg-black text-white bg-grid-pattern border-b border-slate-900 overflow-hidden">
         <CrystalsBackground />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-brand-logo-purple/10 rounded-full blur-[90px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-brand-blue/8 rounded-full blur-[90px] pointer-events-none" />
         <Container className="relative z-10 text-center max-w-3xl mx-auto flex flex-col gap-4">
           <Badge variant="cyan" className="w-fit mx-auto">ABOUT CYBRIXON</Badge>
           <h1 className="text-4xl md:text-5xl font-manrope font-extrabold text-white tracking-tight">
@@ -50,167 +59,265 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* UNIQUE SECURITY OPERATIONS CONSOLE SECTION */}
-      <section className="py-20 bg-[#050b16] border-b border-slate-900 relative">
+      {/* MISSION / VISION / METHOD — Unique Neon Reveal Cards */}
+      <section className="py-24 bg-black border-b border-slate-900 relative overflow-hidden">
+        
+        {/* Ambient glow */}
+        <div className="absolute top-0 left-1/4 w-[400px] h-[300px] bg-brand-blue/6 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-brand-logo-purple/6 rounded-full blur-[100px] pointer-events-none" />
+        
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">COMMAND CENTER</span>
+            <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">PLATFORM CORE</span>
             <h2 className="text-3xl font-manrope font-extrabold text-white">
-              Platform Core Principles
+              The Three Pillars of CYBRIXON
             </h2>
             <p className="text-sm text-text-dark-secondary leading-relaxed">
-              Explore our core objectives, security philosophies, and platform delivery standards.
+              Every decision we make is guided by these core principles.
             </p>
           </div>
 
-          {/* Console UI Panel */}
-          <div className="max-w-4xl mx-auto border border-slate-800 rounded-2xl bg-black/60 shadow-2xl overflow-hidden backdrop-blur-md">
+          {/* 3 Large Unique Cards — stacked with left accent bar + content reveal */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             
-            {/* Terminal Top Bar */}
-            <div className="bg-slate-950 border-b border-slate-850 px-5 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-logo-red inline-block" />
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-logo-purple inline-block" />
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-cyan inline-block" />
-                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-3">SYS_OPS_CORE_CONSOLE // SEC_DIRECTIVE</span>
-              </div>
-              <div className="flex items-center gap-3 text-[10px] font-mono text-slate-500">
-                <span className="flex items-center gap-1">
-                  <Activity className="w-3 h-3 text-brand-logo-purple animate-pulse" />
-                  LATENCY: 14ms
-                </span>
-                <span className="border-l border-slate-800 pl-3">STATUS: ACTIVE</span>
+            {/* MISSION Card */}
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-800/70 hover:border-brand-logo-red/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(211,34,42,0.12)] bg-brand-navy cursor-default">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-logo-red/60 via-brand-logo-red to-brand-logo-red/60 group-hover:opacity-100 opacity-70 transition-opacity" />
+              
+              {/* Corner number */}
+              <div className="absolute top-5 right-5 font-mono text-[10px] font-bold text-brand-logo-red/50 group-hover:text-brand-logo-red/80 transition-colors">01</div>
+              
+              <div className="p-8 flex flex-col gap-5">
+                {/* Icon with animated ring */}
+                <div className="relative w-16 h-16">
+                  <div className="absolute inset-0 rounded-full border-2 border-brand-logo-red/20 group-hover:border-brand-logo-red/50 group-hover:scale-110 transition-all duration-500" />
+                  <div className="absolute inset-[6px] rounded-full bg-brand-logo-red/10 group-hover:bg-brand-logo-red/18 transition-colors flex items-center justify-center">
+                    <Target className="w-6 h-6 text-brand-logo-red" />
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-[10px] font-bold text-brand-logo-red uppercase tracking-widest block mb-1">MISSION</span>
+                  <h3 className="font-manrope font-bold text-2xl text-white mb-3 leading-tight">Bridging the Academic Gap</h3>
+                  <p className="text-sm text-text-dark-secondary leading-relaxed">
+                    To construct a reliable bridge between academic computer science theory and practical cybersecurity operations. We provide students with structured roadmap curriculums, practical assignments, and portfolio-worthy projects.
+                  </p>
+                </div>
+                
+                {/* Highlight box */}
+                <div className="p-3 bg-brand-logo-red/5 border border-brand-logo-red/15 rounded-lg text-[11px] text-brand-logo-red leading-relaxed">
+                  <span className="font-bold block mb-0.5">Our Promise</span>
+                  Actual technical readiness — preparing students to confidently execute entry-level SOC and defensive assessments.
+                </div>
+
+                {/* Decorative terminal line */}
+                <div className="font-mono text-[9px] text-slate-700 group-hover:text-slate-600 transition-colors pt-2 border-t border-slate-800/50">
+                  <span className="text-brand-logo-red/60">▶</span> SEC_MISSION_PROTOCOL.init()
+                </div>
               </div>
             </div>
 
-            {/* Terminal Body */}
-            <div className="grid grid-cols-1 md:grid-cols-12 min-h-[380px]">
+            {/* VISION Card */}
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-800/70 hover:border-brand-blue/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(30,96,200,0.12)] bg-brand-navy cursor-default lg:-mt-4 lg:mb-4">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-blue/60 via-brand-blue to-brand-blue/60 group-hover:opacity-100 opacity-70 transition-opacity" />
               
-              {/* Left Control Column (Tabs) */}
-              <div className="md:col-span-4 border-r border-slate-850 bg-slate-950/40 p-5 flex flex-col gap-3 justify-center">
-                
-                {/* Tab 1 */}
-                <button 
-                  onClick={() => setActiveConsole('mission')}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border text-left font-mono transition-all duration-300 cursor-pointer ${
-                    activeConsole === 'mission'
-                      ? 'bg-brand-logo-red/10 border-brand-logo-red/40 text-white shadow-[0_0_15px_rgba(211,34,42,0.1)]'
-                      : 'bg-transparent border-transparent text-slate-500 hover:text-slate-350 hover:bg-slate-900/30'
-                  }`}
-                >
-                  <Target className={`w-4.5 h-4.5 ${activeConsole === 'mission' ? 'text-brand-logo-red' : 'text-slate-500'}`} />
-                  <div className="flex flex-col">
-                    <span className="text-[9px] text-slate-500 uppercase font-bold tracking-widest">01. COMMAND</span>
-                    <span className="text-xs font-bold">OUR MISSION</span>
+              {/* Corner number */}
+              <div className="absolute top-5 right-5 font-mono text-[10px] font-bold text-brand-blue/50 group-hover:text-brand-blue/80 transition-colors">02</div>
+
+              <div className="p-8 flex flex-col gap-5">
+                {/* Icon with animated ring */}
+                <div className="relative w-16 h-16">
+                  <div className="absolute inset-0 rounded-full border-2 border-brand-blue/20 group-hover:border-brand-blue/55 group-hover:scale-110 transition-all duration-500" />
+                  <div className="absolute inset-[6px] rounded-full bg-brand-blue/10 group-hover:bg-brand-blue/18 transition-colors flex items-center justify-center">
+                    <Eye className="w-6 h-6 text-brand-blue" />
                   </div>
-                </button>
+                </div>
 
-                {/* Tab 2 */}
-                <button 
-                  onClick={() => setActiveConsole('vision')}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border text-left font-mono transition-all duration-300 cursor-pointer ${
-                    activeConsole === 'vision'
-                      ? 'bg-brand-logo-purple/10 border-brand-logo-purple/40 text-white shadow-[0_0_15px_rgba(99,39,111,0.15)]'
-                      : 'bg-transparent border-transparent text-slate-500 hover:text-slate-350 hover:bg-slate-900/30'
-                  }`}
-                >
-                  <Eye className={`w-4.5 h-4.5 ${activeConsole === 'vision' ? 'text-brand-logo-purple' : 'text-slate-500'}`} />
-                  <div className="flex flex-col">
-                    <span className="text-[9px] text-slate-500 uppercase font-bold tracking-widest">02. INTEL</span>
-                    <span className="text-xs font-bold">OUR VISION</span>
-                  </div>
-                </button>
-
-                {/* Tab 3 */}
-                <button 
-                  onClick={() => setActiveConsole('method')}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border text-left font-mono transition-all duration-300 cursor-pointer ${
-                    activeConsole === 'method'
-                      ? 'bg-brand-cyan/10 border-brand-cyan/40 text-white shadow-[0_0_15px_rgba(34,211,238,0.1)]'
-                      : 'bg-transparent border-transparent text-slate-500 hover:text-slate-350 hover:bg-slate-900/30'
-                  }`}
-                >
-                  <Sliders className={`w-4.5 h-4.5 ${activeConsole === 'method' ? 'text-brand-cyan' : 'text-slate-500'}`} />
-                  <div className="flex flex-col">
-                    <span className="text-[9px] text-slate-500 uppercase font-bold tracking-widest">03. PROTOCOL</span>
-                    <span className="text-xs font-bold">OUR METHOD</span>
-                  </div>
-                </button>
-
-              </div>
-
-              {/* Right Content Panel (Interactive Terminal Window) */}
-              <div className="md:col-span-8 p-8 flex flex-col justify-between bg-slate-950/20">
                 <div>
-                  {/* Console Header */}
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-850">
-                    <span className="text-[10px] font-mono text-brand-logo-purple font-bold tracking-wider uppercase">
-                      {activeConsole === 'mission' ? '// INITIATING_MISSION_PROTOCOL' : activeConsole === 'vision' ? '// ANALYZING_VISION_LANDSCAPE' : '// LOADING_OPERATIONAL_STEPS'}
-                    </span>
-                    <span className="text-[9px] font-mono text-slate-650 bg-slate-900/50 px-2 py-0.5 rounded border border-slate-800">
-                      ID_REF: {activeConsole === 'mission' ? 'SEC-01' : activeConsole === 'vision' ? 'SEC-02' : 'SEC-03'}
-                    </span>
-                  </div>
-
-                  {/* Dynamic Panel Content */}
-                  {activeConsole === 'mission' && (
-                    <div className="flex flex-col gap-4 animate-fadeIn">
-                      <h3 className="font-manrope font-bold text-2xl text-white">Bridging the Academic Gap</h3>
-                      <p className="text-xs md:text-sm text-text-dark-secondary leading-relaxed">
-                        To construct a reliable bridge between academic computer science theory and practical cybersecurity operations. We provide students with structured roadmap curriculums, practical assignments, and portfolio-worthy projects.
-                      </p>
-                      <div className="bg-brand-logo-red/5 border border-brand-logo-red/10 rounded-lg p-3 text-[11px] text-brand-logo-red flex gap-2 items-start mt-2">
-                        <Info className="w-4.5 h-4.5 flex-shrink-0 mt-0.5" />
-                        <span>Our mission focuses on delivering actual technical readiness, preparing students to confidently execute entry-level SOC and defensive assessments.</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeConsole === 'vision' && (
-                    <div className="flex flex-col gap-4 animate-fadeIn">
-                      <h3 className="font-manrope font-bold text-2xl text-white">Cultivating Systematic Defenders</h3>
-                      <p className="text-xs md:text-sm text-text-dark-secondary leading-relaxed">
-                        To cultivate a network of cyber defenders who approach security systematically, understanding how packets, OS kernel security, and application flows work before relying on automated tools.
-                      </p>
-                      <div className="bg-brand-logo-purple/5 border border-brand-logo-purple/10 rounded-lg p-3 text-[11px] text-brand-logo-purple flex gap-2 items-start mt-2">
-                        <Info className="w-4.5 h-4.5 flex-shrink-0 mt-0.5" />
-                        <span>We envision an industry staffed by analytical professionals who understand the packets and code, rather than "script kiddies" who rely solely on third-party scanners.</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeConsole === 'method' && (
-                    <div className="flex flex-col gap-4 animate-fadeIn">
-                      <h3 className="font-manrope font-bold text-2xl text-white">A Concept-First Pedagogy</h3>
-                      <p className="text-xs md:text-sm text-text-dark-secondary leading-relaxed">
-                        A concept-first approach. We structure learning week-by-week and require students to run diagnostics and write summaries inside legal sandboxes to earn verifiable completion credentials.
-                      </p>
-                      <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-[11px] text-text-dark-secondary mt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-success" /> Master OSI Layers First</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-success" /> Hands-On Lab Work</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-success" /> Graded Worksheets</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-success" /> Scope Boundary Rules</li>
-                      </ul>
-                    </div>
-                  )}
+                  <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest block mb-1">VISION</span>
+                  <h3 className="font-manrope font-bold text-2xl text-white mb-3 leading-tight">Cultivating Systematic Defenders</h3>
+                  <p className="text-sm text-text-dark-secondary leading-relaxed">
+                    To cultivate a network of cyber defenders who approach security systematically, understanding how packets, OS kernel security, and application flows work before relying on automated tools.
+                  </p>
+                </div>
+                
+                {/* Highlight box */}
+                <div className="p-3 bg-brand-blue/5 border border-brand-blue/15 rounded-lg text-[11px] text-brand-cyan leading-relaxed">
+                  <span className="font-bold block mb-0.5">Our Goal</span>
+                  An industry staffed by analytical professionals who understand packets and code — not just automated scanners.
                 </div>
 
-                {/* Console Footer Text */}
-                <div className="mt-8 pt-4 border-t border-slate-850 flex items-center justify-between text-[9px] font-mono text-slate-600">
-                  <span>SECURE_DATA_ENCRYPTION_ACTIVE</span>
-                  <span>CYBRIXON // SECURE_SHELL_v2.0</span>
+                {/* Decorative terminal line */}
+                <div className="font-mono text-[9px] text-slate-700 group-hover:text-slate-600 transition-colors pt-2 border-t border-slate-800/50">
+                  <span className="text-brand-blue/60">▶</span> VISION_LANDSCAPE.analyze()
                 </div>
-
               </div>
+            </div>
 
+            {/* METHOD Card */}
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-800/70 hover:border-brand-cyan/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(34,211,238,0.10)] bg-brand-navy cursor-default">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-cyan/50 via-brand-cyan to-brand-cyan/50 group-hover:opacity-100 opacity-60 transition-opacity" />
+              
+              {/* Corner number */}
+              <div className="absolute top-5 right-5 font-mono text-[10px] font-bold text-brand-cyan/50 group-hover:text-brand-cyan/80 transition-colors">03</div>
+
+              <div className="p-8 flex flex-col gap-5">
+                {/* Icon with animated ring */}
+                <div className="relative w-16 h-16">
+                  <div className="absolute inset-0 rounded-full border-2 border-brand-cyan/20 group-hover:border-brand-cyan/50 group-hover:scale-110 transition-all duration-500" />
+                  <div className="absolute inset-[6px] rounded-full bg-brand-cyan/8 group-hover:bg-brand-cyan/15 transition-colors flex items-center justify-center">
+                    <Sliders className="w-6 h-6 text-brand-cyan" />
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-[10px] font-bold text-brand-cyan uppercase tracking-widest block mb-1">METHOD</span>
+                  <h3 className="font-manrope font-bold text-2xl text-white mb-3 leading-tight">A Concept-First Pedagogy</h3>
+                  <p className="text-sm text-text-dark-secondary leading-relaxed">
+                    A concept-first approach. We structure learning week-by-week and require students to run diagnostics and write summaries inside legal sandboxes to earn verifiable completion credentials.
+                  </p>
+                </div>
+
+                {/* Method checklist */}
+                <ul className="grid grid-cols-2 gap-x-3 gap-y-2 text-[11px] text-text-dark-secondary">
+                  <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-success flex-shrink-0" /> Master OSI Layers First</li>
+                  <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-success flex-shrink-0" /> Hands-On Lab Work</li>
+                  <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-success flex-shrink-0" /> Graded Worksheets</li>
+                  <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-success flex-shrink-0" /> Scope Boundary Rules</li>
+                  <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-success flex-shrink-0" /> Concept Before Tools</li>
+                  <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-success flex-shrink-0" /> Career Mapping</li>
+                </ul>
+
+                {/* Decorative terminal line */}
+                <div className="font-mono text-[9px] text-slate-700 group-hover:text-slate-600 transition-colors pt-2 border-t border-slate-800/50">
+                  <span className="text-brand-cyan/60">▶</span> OPERATIONAL_STEPS.execute()
+                </div>
+              </div>
             </div>
 
           </div>
         </Container>
       </section>
 
-      {/* MERGED: WHY CYBRIXON - 6 PILLARS OF GROWTH */}
-      <section className="py-20 bg-[#030712] border-b border-slate-900">
+      {/* WHY CHOOSE CYBRIXON — Bento Grid Layout */}
+      <section className="py-24 bg-brand-navy border-b border-slate-800/60 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-brand-blue/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
+            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">WHY CHOOSE US</span>
+            <h2 className="text-3xl font-manrope font-extrabold text-white">
+              Structured to Deliver Competency
+            </h2>
+            <p className="text-sm text-text-dark-secondary leading-relaxed">
+              We focus on building actual operational knowledge, moving past superficial memorization.
+            </p>
+          </div>
+
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            
+            {/* Feature 1 — Large featured card */}
+            <div className="lg:col-span-2 group relative p-7 rounded-2xl bg-brand-elevated/50 border border-slate-800/70 hover:border-brand-blue/40 hover:shadow-[0_0_30px_rgba(30,96,200,0.12)] transition-all duration-400 overflow-hidden">
+              <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-brand-blue/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-brand-blue/10 transition-colors" />
+              <div className="flex flex-col gap-4 relative z-10">
+                <div className="w-11 h-11 rounded-xl bg-brand-blue/15 border border-brand-blue/25 flex items-center justify-center text-brand-blue">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-manrope font-bold text-lg text-white mb-2">Structured Learning Path</h4>
+                  <p className="text-sm text-text-dark-secondary leading-relaxed">
+                    No random videos or disjointed tutorials. Follow a logical, sequential week-by-week curriculum mapped to industry goals. Every module builds on the last, ensuring you develop deep conceptual roots before moving to advanced techniques.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {['Week-by-Week', 'Sequential Logic', 'Industry-Mapped'].map((tag) => (
+                    <span key={tag} className="text-[10px] font-bold text-brand-blue bg-brand-blue/8 border border-brand-blue/20 px-2.5 py-0.5 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="group relative p-7 rounded-2xl bg-brand-elevated/50 border border-slate-800/70 hover:border-brand-logo-purple/35 hover:shadow-[0_0_20px_rgba(99,39,111,0.10)] transition-all duration-400 overflow-hidden">
+              <div className="flex flex-col gap-4">
+                <div className="w-11 h-11 rounded-xl bg-brand-logo-purple/12 border border-brand-logo-purple/25 flex items-center justify-center text-brand-logo-purple">
+                  <Terminal className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-manrope font-bold text-base text-white mb-2">Practical Cyber Exposure</h4>
+                  <p className="text-xs text-text-dark-secondary leading-relaxed">
+                    Work within legal sandboxes to scan and assess environments, learning exactly how traffic rules, systems, and protocols interact.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="group relative p-7 rounded-2xl bg-brand-elevated/50 border border-slate-800/70 hover:border-brand-logo-red/30 hover:shadow-[0_0_20px_rgba(211,34,42,0.08)] transition-all duration-400">
+              <div className="flex flex-col gap-4">
+                <div className="w-11 h-11 rounded-xl bg-brand-logo-red/12 border border-brand-logo-red/25 flex items-center justify-center text-brand-logo-red">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-manrope font-bold text-base text-white mb-2">Concept-First Principles</h4>
+                  <p className="text-xs text-text-dark-secondary leading-relaxed">
+                    Understand underlying security models and networking layers prior to running automated vulnerability scanners.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="group relative p-7 rounded-2xl bg-brand-elevated/50 border border-slate-800/70 hover:border-brand-blue/35 hover:shadow-[0_0_20px_rgba(30,96,200,0.10)] transition-all duration-400">
+              <div className="flex flex-col gap-4">
+                <div className="w-11 h-11 rounded-xl bg-brand-blue/12 border border-brand-blue/25 flex items-center justify-center text-brand-blue">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-manrope font-bold text-base text-white mb-2">Guided Assignments</h4>
+                  <p className="text-xs text-text-dark-secondary leading-relaxed">
+                    Submit worksheets, analysis briefs, and scan reports. Get actual grading feedback to identify your gaps.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 5 — Wide */}
+            <div className="group relative lg:col-span-2 p-7 rounded-2xl bg-gradient-to-br from-brand-elevated/50 to-brand-deep-blue/40 border border-slate-800/70 hover:border-brand-cyan/30 hover:shadow-[0_0_25px_rgba(34,211,238,0.08)] transition-all duration-400 overflow-hidden">
+              <div className="absolute bottom-0 right-0 w-[200px] h-[150px] bg-brand-cyan/4 rounded-full blur-[60px] pointer-events-none" />
+              <div className="flex flex-col sm:flex-row gap-6 items-start relative z-10">
+                <div className="flex flex-col gap-4 flex-1">
+                  <div className="w-11 h-11 rounded-xl bg-brand-cyan/8 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                    <Briefcase className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-manrope font-bold text-base text-white mb-2">Career Direction & Real Projects</h4>
+                    <p className="text-xs text-text-dark-secondary leading-relaxed">
+                      Identify which specialty track fits your goals — SOC, VAPT, or GRC. Benefit from structured resume mapping, mock interviews, and enterprise-format project deliverables like network audit briefs and security reports.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex-shrink-0 flex flex-col gap-2 text-[11px]">
+                  {['SOC Analyst Track', 'VAPT Specialist Track', 'GRC Operations Track'].map((track, i) => (
+                    <div key={i} className="flex items-center gap-2 text-text-dark-secondary">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
+                      {track}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {/* METHODOLOGY PILLARS */}
+      <section className="py-20 bg-black border-b border-slate-900">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">METHODOLOGY</span>
@@ -225,7 +332,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Pillar 1 */}
-            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/80 bg-brand-elevated/20">
+            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/70 bg-brand-elevated/20 hover:border-brand-blue/30 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-brand-logo-red/10 border border-brand-logo-red/20 flex items-center justify-center text-brand-logo-red">
                 <BookOpen className="w-5 h-5" />
               </div>
@@ -236,7 +343,7 @@ export default function AboutPage() {
             </Card>
 
             {/* Pillar 2 */}
-            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/80 bg-brand-elevated/20">
+            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/70 bg-brand-elevated/20 hover:border-brand-blue/30 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/10 border border-brand-logo-purple/20 flex items-center justify-center text-brand-logo-purple">
                 <Terminal className="w-5 h-5" />
               </div>
@@ -247,7 +354,7 @@ export default function AboutPage() {
             </Card>
 
             {/* Pillar 3 */}
-            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/80 bg-brand-elevated/20">
+            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/70 bg-brand-elevated/20 hover:border-brand-blue/30 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/10 border border-brand-logo-purple/20 flex items-center justify-center text-brand-logo-purple">
                 <UserCheck className="w-5 h-5" />
               </div>
@@ -258,7 +365,7 @@ export default function AboutPage() {
             </Card>
 
             {/* Pillar 4 */}
-            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/80 bg-brand-elevated/20">
+            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/70 bg-brand-elevated/20 hover:border-brand-blue/30 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-brand-logo-red/10 border border-brand-logo-red/20 flex items-center justify-center text-brand-logo-red">
                 <Award className="w-5 h-5" />
               </div>
@@ -269,7 +376,7 @@ export default function AboutPage() {
             </Card>
 
             {/* Pillar 5 */}
-            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/80 bg-brand-elevated/20">
+            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/70 bg-brand-elevated/20 hover:border-brand-blue/30 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/10 border border-brand-logo-purple/20 flex items-center justify-center text-brand-logo-purple">
                 <Shield className="w-5 h-5" />
               </div>
@@ -280,7 +387,7 @@ export default function AboutPage() {
             </Card>
 
             {/* Pillar 6 */}
-            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/80 bg-brand-elevated/20">
+            <Card variant="light" className="p-7 flex flex-col gap-4 border border-slate-800/70 bg-brand-elevated/20 hover:border-brand-blue/30 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/10 border border-brand-logo-purple/20 flex items-center justify-center text-brand-logo-purple">
                 <Star className="w-5 h-5" />
               </div>
@@ -294,8 +401,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* MERGED: WHY CYBRIXON - COMPARATIVE ANALYSIS TABLE */}
-      <section className="py-20 bg-[#050b16] border-b border-slate-900">
+      {/* COMPARATIVE ANALYSIS TABLE */}
+      <section className="py-20 bg-brand-navy border-b border-slate-800/60">
         <Container className="max-w-4xl">
           <div className="text-center mb-12 flex flex-col items-center gap-3">
             <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">COMPARATIVE ANALYSIS</span>
@@ -308,15 +415,15 @@ export default function AboutPage() {
           </div>
 
           {/* Table Container */}
-          <div className="overflow-hidden border border-slate-800 rounded-xl bg-black/45 shadow-lg">
+          <div className="overflow-hidden border border-slate-800/70 rounded-xl bg-black/45 shadow-lg">
             <table className="w-full border-collapse text-left text-xs md:text-sm">
               <thead>
-                <tr className="bg-slate-950 text-white border-b border-slate-850 font-manrope font-semibold">
+                <tr className="bg-brand-elevated text-white border-b border-slate-800/80 font-manrope font-semibold">
                   <th className="p-4 md:p-5 w-1/2">Random Tutorial Study</th>
-                  <th className="p-4 md:p-5 w-1/2 border-l border-slate-850 text-brand-logo-red">CYBRIXON Structured Internship</th>
+                  <th className="p-4 md:p-5 w-1/2 border-l border-slate-800/80 text-brand-logo-red">CYBRIXON Structured Internship</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-850 text-text-dark-primary">
+              <tbody className="divide-y divide-slate-800/60 text-text-dark-primary">
                 
                 <tr>
                   <td className="p-4 md:p-5 flex items-start gap-2.5">
@@ -326,7 +433,7 @@ export default function AboutPage() {
                       <span className="text-xs text-text-dark-secondary">Watching random videos without a unified roadmap or completion milestones.</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-5 border-l border-slate-850">
+                  <td className="p-4 md:p-5 border-l border-slate-800/60">
                     <div className="flex items-start gap-2.5">
                       <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                       <div>
@@ -345,7 +452,7 @@ export default function AboutPage() {
                       <span className="text-xs text-text-dark-secondary">Running command lines from scripts without understanding packets or protocols.</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-5 border-l border-slate-850">
+                  <td className="p-4 md:p-5 border-l border-slate-800/60">
                     <div className="flex items-start gap-2.5">
                       <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                       <div>
@@ -364,7 +471,7 @@ export default function AboutPage() {
                       <span className="text-xs text-text-dark-secondary">Passively observing stream screencasts without performing lab testing yourself.</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-5 border-l border-slate-850">
+                  <td className="p-4 md:p-5 border-l border-slate-800/60">
                     <div className="flex items-start gap-2.5">
                       <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                       <div>
@@ -383,7 +490,7 @@ export default function AboutPage() {
                       <span className="text-xs text-text-dark-secondary">Unsure how your learning fits into professional specialties or role requirements.</span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-5 border-l border-slate-850">
+                  <td className="p-4 md:p-5 border-l border-slate-800/60">
                     <div className="flex items-start gap-2.5">
                       <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                       <div>
@@ -401,7 +508,7 @@ export default function AboutPage() {
       </section>
 
       {/* OBJECTIVES */}
-      <section className="py-20 bg-[#030712] border-b border-slate-900">
+      <section className="py-20 bg-black border-b border-slate-900">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 flex flex-col gap-4">
@@ -422,8 +529,8 @@ export default function AboutPage() {
                 { title: 'Promote Ethical Learning', desc: 'Enforce boundary agreements and remind users of authorization laws.' },
                 { title: 'Create Career Awareness', desc: 'Deconstruct SOC, Pentesting, and GRC operations so learners understand actual industry options.' }
               ].map((obj, idx) => (
-                <div key={idx} className="p-5 bg-brand-elevated/40 border border-slate-800 rounded-xl flex flex-col gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-brand-logo-purple/15 flex items-center justify-center text-brand-logo-purple font-manrope font-bold text-xs">
+                <div key={idx} className="p-5 bg-brand-elevated/40 border border-slate-800/60 rounded-xl flex flex-col gap-2 hover:border-brand-blue/30 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-brand-blue/15 flex items-center justify-center text-brand-blue font-manrope font-bold text-xs">
                     {idx + 1}
                   </div>
                   <h4 className="font-manrope font-bold text-sm text-white">{obj.title}</h4>
@@ -436,7 +543,7 @@ export default function AboutPage() {
       </section>
 
       {/* COMMITMENT & ETHICS */}
-      <section className="py-20 bg-[#050b16] border-b border-slate-900">
+      <section className="py-20 bg-brand-navy border-b border-slate-800/60">
         <Container className="max-w-4xl">
           <div className="flex flex-col gap-6 text-center items-center">
             <Scale className="w-12 h-12 text-brand-logo-red" />
@@ -446,7 +553,7 @@ export default function AboutPage() {
             <p className="text-sm text-text-dark-secondary leading-relaxed">
               Cybersecurity skills represent significant operational power. In our courses and tasks, we emphasize that offensive security techniques are dual-use tools. While they are necessary to understand threats and test controls, using them without authorization is a violation of international regulations.
             </p>
-            <div className="w-full bg-black border border-slate-800 rounded-xl p-6 text-left text-white mt-4 relative overflow-hidden bg-grid-pattern">
+            <div className="w-full bg-black/60 border border-slate-800/70 rounded-xl p-6 text-left text-white mt-4 relative overflow-hidden bg-grid-pattern">
               <h4 className="font-manrope font-bold text-sm text-brand-logo-red mb-2">Notice to All Candidates</h4>
               <p className="text-xs text-text-dark-secondary leading-relaxed">
                 By participating in CYBRIXON programs, you agree to never execute scanning utilities, exploit scripts, or vulnerability checkers against systems that you do not own, or systems where you lack a signed, written Scope of Work (SoW) authorization. Defensive systems are engineered to log and block unauthorized scans, and security organizations will report illegal probing to relevant authorities.

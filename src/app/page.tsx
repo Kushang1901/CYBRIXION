@@ -35,12 +35,12 @@ export default function HomePage() {
       <Header />
       
       {/* HERO SECTION */}
-      <section className="relative pt-[120px] pb-24 md:pt-[150px] md:pb-32 bg-brand-dark dark-theme overflow-hidden bg-grid-pattern">
+      <section className="relative pt-[120px] pb-24 md:pt-[150px] md:pb-32 bg-black dark-theme overflow-hidden bg-grid-pattern">
         <CrystalsBackground />
         
-        {/* Subtle cyan glow in background */}
-        <div className="absolute top-1/4 right-[-10%] w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-10 left-[-5%] w-[300px] h-[300px] bg-brand-violet/10 rounded-full blur-[90px] pointer-events-none" />
+        {/* Dark blue glow overlays */}
+        <div className="absolute top-1/4 right-[-10%] w-[500px] h-[500px] bg-brand-blue/8 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 left-[-5%] w-[300px] h-[300px] bg-brand-mid-blue/12 rounded-full blur-[100px] pointer-events-none" />
 
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -63,7 +63,7 @@ export default function HomePage() {
                   Explore Internships
                   <ArrowRight className="w-5 h-5" />
                 </Button>
-                <Button href="/why-choose-us" variant="outline" size="lg">
+                <Button href="/about" variant="outline" size="lg">
                   See How It Works
                 </Button>
               </div>
@@ -71,25 +71,25 @@ export default function HomePage() {
               {/* Trust Indicators */}
               <div className="grid grid-cols-2 gap-y-4 gap-x-6 pt-6 border-t border-slate-800/80 mt-2">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-cyan/15 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
                     <Check className="w-3 h-3 text-brand-cyan" />
                   </div>
                   <span className="text-sm font-semibold text-text-dark-primary">Structured Learning</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-cyan/15 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
                     <Check className="w-3 h-3 text-brand-cyan" />
                   </div>
                   <span className="text-sm font-semibold text-text-dark-primary">Practical Projects</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-cyan/15 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
                     <Check className="w-3 h-3 text-brand-cyan" />
                   </div>
                   <span className="text-sm font-semibold text-text-dark-primary">Career-Focused Paths</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-cyan/15 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
                     <Check className="w-3 h-3 text-brand-cyan" />
                   </div>
                   <span className="text-sm font-semibold text-text-dark-primary">Verifiable Certificates</span>
@@ -158,19 +158,19 @@ export default function HomePage() {
               {/* Outer Cyan Orbiting Particle */}
               <div className="absolute w-3 h-3 bg-brand-cyan rounded-full custom-orbit-cyan shadow-[0_0_15px_#22d3ee] z-20 pointer-events-none" />
               
-              {/* Outer Violet Orbiting Particle */}
-              <div className="absolute w-2.5 h-2.5 bg-brand-violet rounded-full custom-orbit-violet shadow-[0_0_15px_#8b5cf6] z-20 pointer-events-none" />
+              {/* Outer Blue Orbiting Particle */}
+              <div className="absolute w-2.5 h-2.5 bg-brand-blue rounded-full custom-orbit-violet shadow-[0_0_15px_#1E60C8] z-20 pointer-events-none" />
 
               {/* Holographic Glowing Scanning Rings */}
               <div className="absolute pointer-events-none" style={{ transform: 'rotateX(65deg) rotateY(-15deg)' }}>
-                <div className="w-[420px] h-[420px] border border-brand-cyan/25 rounded-full custom-spin-slow-reverse" />
+                <div className="w-[420px] h-[420px] border border-brand-blue/25 rounded-full custom-spin-slow-reverse" />
               </div>
               <div className="absolute pointer-events-none" style={{ transform: 'rotateX(65deg) rotateY(10deg)' }}>
-                <div className="w-[360px] h-[360px] border border-dashed border-brand-violet/35 rounded-full custom-spin-slow" />
+                <div className="w-[360px] h-[360px] border border-dashed border-brand-cyan/25 rounded-full custom-spin-slow" />
               </div>
 
               {/* Digital Grid Scan Area */}
-              <div className="absolute inset-0 bg-radial-gradient from-brand-cyan/10 to-transparent blur-3xl pointer-events-none" />
+              <div className="absolute inset-0 bg-radial-gradient from-brand-blue/8 to-transparent blur-3xl pointer-events-none" />
 
               {/* 3D Shield Model */}
               <div 
@@ -180,22 +180,22 @@ export default function HomePage() {
                 
                 {/* 1. Deep 3D Shadow/Glow Layer */}
                 <div 
-                  className="absolute w-[290px] h-[340px] bg-gradient-to-b from-brand-cyan/20 to-brand-violet/25 blur-2xl rounded-[3rem] pointer-events-none"
+                  className="absolute w-[290px] h-[340px] bg-gradient-to-b from-brand-blue/20 to-brand-mid-blue/25 blur-2xl rounded-[3rem] pointer-events-none"
                   style={{ transform: 'translateZ(-30px)' }}
                 />
 
                 {/* 2. Middle Layer: Hologram Digital Core Grid */}
                 <div 
-                  className="absolute w-[270px] h-[320px] bg-[#0b1728]/60 border border-brand-violet/25 rounded-[2.5rem] flex items-center justify-center overflow-hidden pointer-events-none shadow-[inset_0_0_40px_rgba(139,92,246,0.15)]"
+                  className="absolute w-[270px] h-[320px] bg-[#020B18]/60 border border-brand-blue/20 rounded-[2.5rem] flex items-center justify-center overflow-hidden pointer-events-none shadow-[inset_0_0_40px_rgba(30,96,200,0.12)]"
                   style={{ transform: 'translateZ(-12px)' }}
                 >
                   <div className="absolute inset-0 bg-dot-pattern opacity-40" />
-                  <div className="w-48 h-48 rounded-full border border-brand-violet/15 animate-ping opacity-30" />
+                  <div className="w-48 h-48 rounded-full border border-brand-blue/15 animate-ping opacity-30" />
                 </div>
 
                 {/* 3. Front Layer: Main Shield Armor Plate */}
                 <div 
-                  className="absolute w-[280px] h-[330px] bg-gradient-to-b from-[#0c1b30] to-[#071020] border-2 border-brand-cyan rounded-[2.5rem] shadow-[0_0_55px_rgba(34,211,238,0.25)] flex flex-col items-center justify-center overflow-hidden"
+                  className="absolute w-[280px] h-[330px] bg-gradient-to-b from-[#071525] to-[#020B18] border-2 border-brand-blue/60 rounded-[2.5rem] shadow-[0_0_55px_rgba(30,96,200,0.30)] flex flex-col items-center justify-center overflow-hidden"
                   style={{ transform: 'translateZ(25px)' }}
                 >
                   
@@ -209,7 +209,7 @@ export default function HomePage() {
                     <div className="absolute inset-0 border border-dashed border-brand-cyan/50 rounded-full custom-spin-slow-reverse" />
                     
                     {/* Solid rotating sub-ring */}
-                    <div className="absolute w-28 h-28 border-2 border-brand-violet/25 rounded-full" />
+                    <div className="absolute w-28 h-28 border-2 border-brand-blue/25 rounded-full" />
                     
                     {/* SVG Shield Drawing */}
                     <svg className="w-20 h-20 text-brand-cyan drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -219,7 +219,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Glowing Laser Scan Bar */}
-                  <div className="absolute left-0 right-0 h-10 bg-gradient-to-b from-transparent via-brand-cyan/25 to-transparent custom-shield-scan" />
+                  <div className="absolute left-0 right-0 h-10 bg-gradient-to-b from-transparent via-brand-blue/20 to-transparent custom-shield-scan" />
 
                   {/* Cybersecurity Encryption Label */}
                   <div className="mt-8 flex flex-col items-center gap-1.5">
@@ -238,7 +238,7 @@ export default function HomePage() {
       </section>
 
       {/* TRUST / VALUE BAR */}
-      <section className="bg-brand-navy border-y border-slate-800 text-text-dark-primary py-10 relative z-10">
+      <section className="bg-brand-navy border-y border-slate-800/60 text-text-dark-primary py-10 relative z-10">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 justify-items-center">
             <div className="flex flex-col items-center text-center">
@@ -266,7 +266,7 @@ export default function HomePage() {
       </section>
 
       {/* OUR DIRECTIVE */}
-      <section className="py-20 md:py-28 bg-[#030712] border-t border-slate-900">
+      <section className="py-20 md:py-28 bg-black border-t border-slate-900/80">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">OUR DIRECTIVE</span>
@@ -280,7 +280,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800">
+            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800/60">
               <div className="w-12 h-12 rounded-xl bg-brand-logo-red/15 flex items-center justify-center text-brand-logo-red">
                 <Shield className="w-6 h-6" />
               </div>
@@ -291,7 +291,7 @@ export default function HomePage() {
             </Card>
 
             {/* Card 2 */}
-            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800">
+            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800/60">
               <div className="w-12 h-12 rounded-xl bg-brand-logo-purple/15 flex items-center justify-center text-brand-logo-purple">
                 <BookOpen className="w-6 h-6" />
               </div>
@@ -302,7 +302,7 @@ export default function HomePage() {
             </Card>
 
             {/* Card 3 */}
-            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800">
+            <Card variant="light" className="p-8 flex flex-col gap-4 border border-slate-800/60">
               <div className="w-12 h-12 rounded-xl bg-brand-logo-purple/15 flex items-center justify-center text-brand-logo-purple">
                 <Terminal className="w-6 h-6" />
               </div>
@@ -319,199 +319,134 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* WHY CHOOSE CYBRIXON */}
-      <section className="py-20 md:py-28 bg-[#050b16] text-white bg-dot-pattern border-t border-slate-900">
+      {/* FEATURED INTERNSHIP PROGRAMS — Compact Summary Cards */}
+      <section className="py-20 md:py-28 bg-brand-navy border-t border-slate-800/60">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">WHY CHOOSE US</span>
-            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
-              Structured to Deliver Competency
-            </h2>
-            <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
-              We focus on building actual operational knowledge, moving past superficial memorization.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Feature 1 */}
-            <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
-                <BookOpen className="w-5 h-5" />
-              </div>
-              <h4 className="font-manrope font-bold text-lg text-white">Structured Learning Path</h4>
-              <p className="text-xs text-text-dark-secondary leading-relaxed">
-                No random videos or disjointed tutorials. Follow a logical, sequential week-by-week curriculum mapped to industry goals.
-              </p>
-            </Card>
-
-            {/* Feature 2 */}
-            <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
-                <Terminal className="w-5 h-5" />
-              </div>
-              <h4 className="font-manrope font-bold text-lg text-white">Practical Cyber Exposure</h4>
-              <p className="text-xs text-text-dark-secondary leading-relaxed">
-                Work within legal sandboxes to scan and assess environments, learning exactly how traffic rules, systems, and protocols interact.
-              </p>
-            </Card>
-
-            {/* Feature 3 */}
-            <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-logo-red/15 border border-brand-logo-red/30 flex items-center justify-center text-brand-logo-red">
-                <Cpu className="w-5 h-5" />
-              </div>
-              <h4 className="font-manrope font-bold text-lg text-white">Concept-First Principles</h4>
-              <p className="text-xs text-text-dark-secondary leading-relaxed">
-                Understand the underlying security models and networking layers prior to running automated vulnerability scanners.
-              </p>
-            </Card>
-
-            {/* Feature 4 */}
-            <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
-                <FileText className="w-5 h-5" />
-              </div>
-              <h4 className="font-manrope font-bold text-lg text-white">Guided Assignments</h4>
-              <p className="text-xs text-text-dark-secondary leading-relaxed">
-                Submit worksheets, analysis briefs, and scan reports. Get actual grading feedback to identify your gaps.
-              </p>
-            </Card>
-
-            {/* Feature 5 */}
-            <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-logo-purple/15 border border-brand-logo-purple/30 flex items-center justify-center text-brand-logo-purple">
-                <FileCode className="w-5 h-5" />
-              </div>
-              <h4 className="font-manrope font-bold text-lg text-white">Real Projects</h4>
-              <p className="text-xs text-text-dark-secondary leading-relaxed">
-                Compile comprehensive security audits, network report briefs, and vulnerabilities registers matching enterprise deliverables.
-              </p>
-            </Card>
-
-            {/* Feature 6 */}
-            <Card variant="dark" hoverGlow className="p-7 flex flex-col gap-3.5 border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-brand-logo-red/15 border border-brand-logo-red/30 flex items-center justify-center text-brand-logo-red">
-                <Briefcase className="w-5 h-5" />
-              </div>
-              <h4 className="font-manrope font-bold text-lg text-white">Career Direction</h4>
-              <p className="text-xs text-text-dark-secondary leading-relaxed">
-                Identify which specialty track fits your goals best, and benefit from structured resume mapping and mock interviews.
-              </p>
-            </Card>
-
-          </div>
-        </Container>
-      </section>
-
-      {/* FEATURED INTERNSHIP PROGRAMS */}
-      <section className="py-20 md:py-28 bg-[#030712] border-t border-slate-900">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
+          <div className="text-center max-w-2xl mx-auto mb-14 flex flex-col items-center gap-3">
             <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">FEATURED INTERNSHIPS</span>
             <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
               Choose Your Cybersecurity Path
             </h2>
             <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
-              We offer structured programs tailored to your current technical background and career objectives.
+              Three structured programs tailored to your background. View full details on the Internships page.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col gap-5">
             
-            {/* 30-Day Card */}
-            <Card variant="light" hoverGlow className="flex flex-col border border-slate-800/80 overflow-hidden bg-brand-elevated/40">
+            {/* 30-Day Compact Card */}
+            <div className="group flex flex-col sm:flex-row border border-slate-800/70 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(30,96,200,0.12)] transition-all duration-300">
               {/* Image Placeholder */}
-              <div className="w-full h-44 bg-slate-950/80 border-b border-slate-850 flex items-center justify-center text-text-dark-secondary relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/5 to-brand-logo-purple/10 opacity-30 group-hover:opacity-55 transition-opacity duration-300" />
-                <Shield className="w-10 h-10 text-slate-800 relative z-10 group-hover:scale-105 transition-transform duration-300" />
-                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-slate-600 tracking-wider">CYB_30_DEV</span>
-              </div>
-              <div className="p-6 flex-1 flex flex-col gap-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Beginner Level</span>
-                  <span className="text-[10px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded-full">30 Days</span>
+              <div className="sm:w-56 h-40 sm:h-auto bg-slate-950/80 border-b sm:border-b-0 sm:border-r border-slate-800/70 flex items-center justify-center relative overflow-hidden flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/8 to-brand-blue/12 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="flex flex-col items-center gap-2 relative z-10">
+                  <Shield className="w-8 h-8 text-slate-700 group-hover:text-slate-600 transition-colors" />
+                  <span className="text-[9px] font-mono text-slate-600 tracking-wider">IMAGE PLACEHOLDER</span>
                 </div>
-                <h3 className="font-manrope font-bold text-lg text-white group-hover:text-brand-logo-red transition-colors">
-                  30-Day Cybersecurity Internship
-                </h3>
-                <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
-                  A structured beginner-level path covering cybersecurity fundamentals, networking basics, operating systems, and ethical scanning tools.
-                </p>
+                {/* Duration badge over image */}
+                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-blue bg-brand-blue/10 border border-brand-blue/25 px-2 py-0.5 rounded-full">30 DAYS</span>
               </div>
-              <div className="p-5 bg-slate-950/40 border-t border-slate-850 flex items-center">
-                <Button href="/internships/30-day-cybersecurity-internship" variant="primary" className="w-full justify-center">
-                  View Internship
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
+              {/* Content */}
+              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+                <div className="flex-1 flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Beginner Level</span>
+                  </div>
+                  <h3 className="font-manrope font-bold text-base text-white group-hover:text-brand-cyan transition-colors">30-Day Cybersecurity Internship</h3>
+                  <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
+                    Covering cybersecurity fundamentals, networking basics, operating systems, and ethical scanning tools.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <Button href="/internships/30-day-cybersecurity-internship" variant="outline" size="sm">
+                    View Details
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Button>
+                </div>
               </div>
-            </Card>
+            </div>
 
-            {/* 60-Day Card (MOST POPULAR) */}
-            <Card variant="light" hoverGlow className="flex flex-col border border-slate-800/80 overflow-hidden bg-brand-elevated/40 relative">
-              <div className="absolute top-2 right-2 bg-brand-logo-red text-white text-[8px] font-bold font-manrope px-2 py-0.5 rounded uppercase tracking-wider z-20">
+            {/* 60-Day Compact Card (Most Popular) */}
+            <div className="group flex flex-col sm:flex-row border-2 border-brand-blue/40 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/70 hover:shadow-[0_0_28px_rgba(30,96,200,0.20)] transition-all duration-300 relative">
+              {/* Most Popular badge */}
+              <div className="absolute top-3 right-3 sm:right-auto sm:top-3 sm:left-[240px] bg-brand-logo-red text-white text-[8px] font-bold font-manrope px-2.5 py-0.5 rounded uppercase tracking-wider z-20">
                 Most Popular
               </div>
               {/* Image Placeholder */}
-              <div className="w-full h-44 bg-slate-950/80 border-b border-slate-850 flex items-center justify-center text-text-dark-secondary relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/10 to-brand-logo-purple/15 opacity-40 group-hover:opacity-65 transition-opacity duration-300" />
-                <Shield className="w-10 h-10 text-slate-800 relative z-10 group-hover:scale-105 transition-transform duration-300" />
-                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-slate-600 tracking-wider">CYB_60_DEV</span>
-              </div>
-              <div className="p-6 flex-1 flex flex-col gap-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Intermediate Level</span>
-                  <span className="text-[10px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded-full">60 Days</span>
+              <div className="sm:w-56 h-40 sm:h-auto bg-slate-950/80 border-b sm:border-b-0 sm:border-r border-brand-blue/20 flex items-center justify-center relative overflow-hidden flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/12 to-brand-blue/18 opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+                <div className="flex flex-col items-center gap-2 relative z-10">
+                  <Shield className="w-8 h-8 text-slate-700 group-hover:text-slate-600 transition-colors" />
+                  <span className="text-[9px] font-mono text-slate-600 tracking-wider">IMAGE PLACEHOLDER</span>
                 </div>
-                <h3 className="font-manrope font-bold text-lg text-white">
-                  60-Day Cybersecurity Internship
-                </h3>
-                <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
-                  Build stronger foundations through network security, scanning concepts, web security, OWASP Top 10, log analysis, and career support.
-                </p>
+                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/25 px-2 py-0.5 rounded-full">60 DAYS</span>
               </div>
-              <div className="p-5 bg-slate-950/40 border-t border-slate-850 flex items-center">
-                <Button href="/internships/60-day-cybersecurity-internship" variant="primary" className="w-full justify-center">
-                  View Internship
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
+              {/* Content */}
+              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+                <div className="flex-1 flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Intermediate Level</span>
+                  </div>
+                  <h3 className="font-manrope font-bold text-base text-white group-hover:text-brand-cyan transition-colors">60-Day Cybersecurity Internship</h3>
+                  <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
+                    Network security, scanning concepts, web security, OWASP Top 10, log analysis, and career support.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <Button href="/internships/60-day-cybersecurity-internship" variant="primary" size="sm" glow>
+                    View Details
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Button>
+                </div>
               </div>
-            </Card>
+            </div>
 
-            {/* 90-Day Card */}
-            <Card variant="light" hoverGlow className="flex flex-col border border-slate-800/80 overflow-hidden bg-brand-elevated/40">
+            {/* 90-Day Compact Card */}
+            <div className="group flex flex-col sm:flex-row border border-slate-800/70 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(30,96,200,0.12)] transition-all duration-300">
               {/* Image Placeholder */}
-              <div className="w-full h-44 bg-slate-950/80 border-b border-slate-850 flex items-center justify-center text-text-dark-secondary relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/5 to-brand-logo-purple/20 opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
-                <Shield className="w-10 h-10 text-slate-800 relative z-10 group-hover:scale-105 transition-transform duration-300" />
-                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-slate-600 tracking-wider">CYB_90_DEV</span>
-              </div>
-              <div className="p-6 flex-1 flex flex-col gap-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-bold text-brand-logo-purple uppercase tracking-wider">Advanced Level</span>
-                  <span className="text-[10px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/20 px-2.5 py-0.5 rounded-full">90 Days</span>
+              <div className="sm:w-56 h-40 sm:h-auto bg-slate-950/80 border-b sm:border-b-0 sm:border-r border-slate-800/70 flex items-center justify-center relative overflow-hidden flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-purple/8 to-brand-blue/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="flex flex-col items-center gap-2 relative z-10">
+                  <Shield className="w-8 h-8 text-slate-700 group-hover:text-slate-600 transition-colors" />
+                  <span className="text-[9px] font-mono text-slate-600 tracking-wider">IMAGE PLACEHOLDER</span>
                 </div>
-                <h3 className="font-manrope font-bold text-lg text-white">
-                  90-Day Advanced Internship
-                </h3>
-                <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
-                  Complete advanced core security training and proceed directly into specialized tracks: SOC Analyst, VAPT, or GRC operations.
-                </p>
+                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/25 px-2 py-0.5 rounded-full">90 DAYS</span>
               </div>
-              <div className="p-5 bg-slate-950/40 border-t border-slate-850 flex items-center">
-                <Button href="/internships/90-day-advanced-cybersecurity-internship" variant="primary" className="w-full justify-center">
-                  View Internship
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
+              {/* Content */}
+              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+                <div className="flex-1 flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold text-brand-logo-purple uppercase tracking-wider">Advanced Level</span>
+                  </div>
+                  <h3 className="font-manrope font-bold text-base text-white group-hover:text-brand-cyan transition-colors">90-Day Advanced Internship</h3>
+                  <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
+                    Advanced core security training with specialized tracks: SOC Analyst, VAPT, or GRC operations.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <Button href="/internships/90-day-advanced-cybersecurity-internship" variant="outline" size="sm">
+                    View Details
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Button>
+                </div>
               </div>
-            </Card>
+            </div>
 
           </div>
+
+          {/* Link to full internships page */}
+          <div className="text-center mt-10">
+            <Button href="/internships" variant="secondary" size="md">
+              View All Program Details
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+
         </Container>
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20 md:py-28 bg-[#030712] border-t border-slate-900">
+      <section className="py-20 md:py-28 bg-black border-t border-slate-900/80">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <span className="text-xs font-bold text-brand-logo-purple uppercase tracking-wider">PROCESS ROADMAP</span>
@@ -526,58 +461,58 @@ export default function HomePage() {
           {/* Desktop Connected Steps */}
           <div className="hidden lg:grid grid-cols-9 gap-4 items-start relative mt-10">
             {/* Step lines back */}
-            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-slate-800 -z-0" />
+            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-slate-800/80 -z-0" />
             
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">1</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">1</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Explore</h5>
               <span className="text-[10px] text-text-dark-secondary">Choose a Program</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">2</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">2</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Apply</h5>
               <span className="text-[10px] text-text-dark-secondary">Fill Application</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">3</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">3</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Access</h5>
               <span className="text-[10px] text-text-dark-secondary">Enter Dashboard</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">4</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">4</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Learn</h5>
               <span className="text-[10px] text-text-dark-secondary">Structured Lessons</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">5</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">5</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Practice</h5>
               <span className="text-[10px] text-text-dark-secondary">Submit Tasks</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">6</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">6</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Build</h5>
               <span className="text-[10px] text-text-dark-secondary">Compile Projects</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">7</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">7</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Track</h5>
               <span className="text-[10px] text-text-dark-secondary">View Completion</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-purple text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md">8</div>
+              <div className="w-10 h-10 rounded-full bg-brand-blue text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(30,96,200,0.5)]">8</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Audit</h5>
               <span className="text-[10px] text-text-dark-secondary">Fulfill Criteria</span>
             </div>
 
             <div className="col-span-1 flex flex-col items-center text-center relative z-10">
-              <div className="w-10 h-10 rounded-full bg-brand-logo-red text-white font-manrope font-bold text-sm flex items-center justify-center shadow-md border-2 border-brand-logo-purple">9</div>
+              <div className="w-10 h-10 rounded-full bg-brand-logo-red text-white font-manrope font-bold text-sm flex items-center justify-center shadow-[0_0_12px_rgba(211,34,42,0.5)] border-2 border-brand-blue/40">9</div>
               <h5 className="font-manrope font-bold text-xs text-white mt-3 mb-1">Verify</h5>
               <span className="text-[10px] text-text-dark-secondary">Earn Certificate</span>
             </div>
@@ -586,42 +521,42 @@ export default function HomePage() {
           {/* Mobile vertical layout */}
           <div className="lg:hidden flex flex-col gap-6 pl-4 border-l-2 border-slate-800 ml-4">
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">1. Explore a Program</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Select a 30-day, 60-day, or 90-day internship path.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">2. Apply or Enroll</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Register your student account details and program preference.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">3. Access Your Dashboard</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Get immediate portal access to your active coursework checklist.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">4. Learn Through Structured Modules</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Access readable technical lessons and download guides directly.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">5. Complete Weekly Assignments</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Apply your module knowledge on practical worksheets.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">6. Compile Portfolio Projects</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Author standard network scans and audit reports within lab environments.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">7. Track Progress</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Monitor completion metrics in real time.</p>
             </div>
             <div className="relative">
-              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-logo-purple" />
+              <div className="absolute -left-[27px] top-0 w-[12px] h-[12px] rounded-full bg-brand-blue" />
               <h5 className="font-manrope font-bold text-sm text-white">8. Complete Requirements</h5>
               <p className="text-xs text-text-dark-secondary mt-0.5">Validate that all core checklists have been graded successfully.</p>
             </div>
@@ -635,7 +570,7 @@ export default function HomePage() {
       </section>
 
       {/* LEARNING EXPERIENCE */}
-      <section className="py-20 md:py-28 bg-brand-navy border-t border-slate-900">
+      <section className="py-20 md:py-28 bg-brand-navy border-t border-slate-800/60">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -668,26 +603,26 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
-                <span className="text-xs font-bold text-brand-logo-purple block mb-1">Concept-First Method</span>
+              <div className="p-6 bg-brand-elevated/50 border border-slate-800/60 rounded-xl hover:border-brand-blue/30 transition-colors">
+                <span className="text-xs font-bold text-brand-blue block mb-1">Concept-First Method</span>
                 <p className="text-xs text-text-dark-secondary leading-relaxed">
                   We verify that you understand standard transport layer handshakes and subnet architectures prior to demonstrating automated penetration tools.
                 </p>
               </div>
-              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
-                <span className="text-xs font-bold text-brand-logo-purple block mb-1">Zero Stock Photography</span>
+              <div className="p-6 bg-brand-elevated/50 border border-slate-800/60 rounded-xl hover:border-brand-blue/30 transition-colors">
+                <span className="text-xs font-bold text-brand-blue block mb-1">Zero Stock Photography</span>
                 <p className="text-xs text-text-dark-secondary leading-relaxed">
                   All graphics are conceptual flowcharts, actual commands, and realistic dashboard panels designed to simulate developer and security analyst terminals.
                 </p>
               </div>
-              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
-                <span className="text-xs font-bold text-brand-logo-purple block mb-1">Ethics & Safety Warnings</span>
+              <div className="p-6 bg-brand-elevated/50 border border-slate-800/60 rounded-xl hover:border-brand-blue/30 transition-colors">
+                <span className="text-xs font-bold text-brand-blue block mb-1">Ethics & Safety Warnings</span>
                 <p className="text-xs text-text-dark-secondary leading-relaxed">
                   Every technical scanning module highlights the requirements of legal permissions and local lab environments to prevent unintentional computer law breaches.
                 </p>
               </div>
-              <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-xl">
-                <span className="text-xs font-bold text-brand-logo-purple block mb-1">No Video Stream Promises</span>
+              <div className="p-6 bg-brand-elevated/50 border border-slate-800/60 rounded-xl hover:border-brand-blue/30 transition-colors">
+                <span className="text-xs font-bold text-brand-blue block mb-1">No Video Stream Promises</span>
                 <p className="text-xs text-text-dark-secondary leading-relaxed">
                   Our core format focuses on readable text lessons, references, and scheduled live meetings. Recorded video streams are not featured as currently available resources.
                 </p>
@@ -699,14 +634,14 @@ export default function HomePage() {
       </section>
 
       {/* CAREER PATHS */}
-      <section className="py-20 md:py-28 bg-[#F7F9FC] border-t border-slate-200">
+      <section className="py-20 md:py-28 bg-black border-t border-slate-900/80">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
             <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">CAREER TRACKS</span>
-            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-brand-dark">
+            <h2 className="text-3xl md:text-4xl font-manrope font-extrabold text-white">
               Understand Your Targeted Professional Roles
             </h2>
-            <p className="text-sm md:text-base text-text-light-secondary leading-relaxed">
+            <p className="text-sm md:text-base text-text-dark-secondary leading-relaxed">
               Explore primary specializations. *Note: We provide skills training and resume guidance; we do not guarantee job placements.
             </p>
           </div>
@@ -714,33 +649,33 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             
             {/* SOC Analyst */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <h4 className="font-manrope font-bold text-base text-brand-dark mb-2">SOC Analyst</h4>
-              <p className="text-xs text-text-light-secondary leading-relaxed">
+            <div className="bg-brand-elevated/50 border border-slate-800/70 rounded-xl p-6 hover:border-brand-blue/35 hover:shadow-[0_0_16px_rgba(30,96,200,0.12)] transition-all duration-300">
+              <h4 className="font-manrope font-bold text-base text-white mb-2">SOC Analyst</h4>
+              <p className="text-xs text-text-dark-secondary leading-relaxed">
                 Monitors logs, detects system alerts, evaluates malicious packets, and responds to host events.
               </p>
             </div>
 
             {/* VAPT Specialist */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <h4 className="font-manrope font-bold text-base text-brand-dark mb-2">VAPT / Pentester</h4>
-              <p className="text-xs text-text-light-secondary leading-relaxed">
+            <div className="bg-brand-elevated/50 border border-slate-800/70 rounded-xl p-6 hover:border-brand-blue/35 hover:shadow-[0_0_16px_rgba(30,96,200,0.12)] transition-all duration-300">
+              <h4 className="font-manrope font-bold text-base text-white mb-2">VAPT / Pentester</h4>
+              <p className="text-xs text-text-dark-secondary leading-relaxed">
                 Runs vulnerability scans, maps software versions, checks web endpoints, and compiles security audit logs.
               </p>
             </div>
 
             {/* GRC Associate */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <h4 className="font-manrope font-bold text-base text-brand-dark mb-2">GRC Associate</h4>
-              <p className="text-xs text-text-light-secondary leading-relaxed">
+            <div className="bg-brand-elevated/50 border border-slate-800/70 rounded-xl p-6 hover:border-brand-blue/35 hover:shadow-[0_0_16px_rgba(30,96,200,0.12)] transition-all duration-300">
+              <h4 className="font-manrope font-bold text-base text-white mb-2">GRC Associate</h4>
+              <p className="text-xs text-text-dark-secondary leading-relaxed">
                 Defines security policies, monitors risk registers, drafts audits, and cross-checks PCI-DSS and ISO standards.
               </p>
             </div>
 
             {/* Security Operations */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <h4 className="font-manrope font-bold text-base text-brand-dark mb-2">Security Operator</h4>
-              <p className="text-xs text-text-light-secondary leading-relaxed">
+            <div className="bg-brand-elevated/50 border border-slate-800/70 rounded-xl p-6 hover:border-brand-blue/35 hover:shadow-[0_0_16px_rgba(30,96,200,0.12)] transition-all duration-300">
+              <h4 className="font-manrope font-bold text-base text-white mb-2">Security Operator</h4>
+              <p className="text-xs text-text-dark-secondary leading-relaxed">
                 Applies system hardening patches, updates user access permissions, and reviews active firewalls.
               </p>
             </div>
@@ -750,8 +685,8 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 md:py-26 bg-black text-white border-t border-slate-900 relative z-10 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-logo-purple/15 rounded-full blur-[100px] pointer-events-none" />
+      <section className="py-20 md:py-26 bg-brand-navy text-white border-t border-slate-800/60 relative z-10 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none" />
         <Container>
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 relative z-10">
             <h2 className="text-3xl md:text-5xl font-manrope font-extrabold tracking-tight text-white leading-tight">

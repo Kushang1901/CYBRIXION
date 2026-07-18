@@ -25,8 +25,8 @@ export default function Card({
 
   const hoverStyles = hoverGlow 
     ? (variant === 'light' 
-        ? 'hover:-translate-y-1 hover:shadow-[0_0_22px_rgba(99,39,111,0.2)] hover:border-brand-logo-purple/40' 
-        : 'hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] hover:border-brand-cyan/40')
+        ? 'hover:-translate-y-1 hover:shadow-[0_0_22px_rgba(30,96,200,0.22)] hover:border-brand-blue/40' 
+        : 'hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(30,96,200,0.18)] hover:border-brand-blue/35')
     : onClick 
     ? 'hover:cursor-pointer hover:bg-brand-elevated/90' 
     : '';

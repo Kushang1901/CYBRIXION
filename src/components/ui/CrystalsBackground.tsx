@@ -24,12 +24,14 @@ export default function CrystalsBackground() {
     let animationFrameId: number;
     let particles: Particle[] = [];
     
-    // Core color options (mostly dark blue/purple, with subtle red accents to respect the logo)
+    // Dark blue crystal palette — matching reference style
     const colors = [
-      'rgba(59, 130, 246, 0.45)',  // Blue
-      'rgba(99, 39, 111, 0.45)',   // Deep Purple
-      'rgba(34, 211, 238, 0.45)',  // Cyan
-      'rgba(211, 34, 42, 0.35)',   // Muted Red
+      'rgba(30, 80, 180, 0.70)',   // Electric Blue
+      'rgba(15, 50, 130, 0.65)',   // Deep Navy Blue
+      'rgba(60, 120, 220, 0.55)',  // Steel Blue
+      'rgba(100, 160, 255, 0.45)', // Light Ice Blue
+      'rgba(20, 70, 160, 0.80)',   // Dark Royal Blue
+      'rgba(0, 40, 110, 0.60)',    // Midnight Blue
     ];
 
     const resizeCanvas = () => {
@@ -41,17 +43,17 @@ export default function CrystalsBackground() {
 
     const initParticles = () => {
       particles = [];
-      // Dynamic count based on screen area
+      // Dynamic count based on screen area — higher density for crystal effect
       const area = canvas.width * canvas.height;
-      const count = Math.min(Math.floor(area / 18000), 75); // Cap at 75 particles for performance
+      const count = Math.min(Math.floor(area / 12000), 100); // Cap at 100 particles
       
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.35, // Very slow movement
-          vy: (Math.random() - 0.5) * 0.35,
-          radius: Math.random() * 1.8 + 1,
+          vx: (Math.random() - 0.5) * 0.4, // Slightly more movement
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: Math.random() * 2.2 + 1.2, // Slightly larger particles
           color: colors[Math.floor(Math.random() * colors.length)]
         });
       }
@@ -77,8 +79,8 @@ export default function CrystalsBackground() {
         ctx.fill();
       });
 
-      // Draw connections
-      const maxDistance = 115;
+      // Draw connections — stronger lines for crystal polygon effect
+      const maxDistance = 135;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -86,8 +88,8 @@ export default function CrystalsBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDistance) {
-            // Fade line based on distance
-            const alpha = (1 - dist / maxDistance) * 0.16;
+            // Fade line based on distance — more visible blue tinted lines
+            const alpha = (1 - dist / maxDistance) * 0.28;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -106,7 +108,7 @@ export default function CrystalsBackground() {
             grad.addColorStop(1, c2);
             
             ctx.strokeStyle = grad;
-            ctx.lineWidth = 0.85;
+            ctx.lineWidth = 1.0;
             ctx.stroke();
           }
         }

@@ -52,8 +52,8 @@ export default function ContactPage() {
       <Header />
       
       {/* PAGE HERO */}
-      <section className="relative pt-[120px] pb-16 bg-[#030712] text-white bg-grid-pattern border-b border-slate-900">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-brand-logo-purple/10 rounded-full blur-[90px] pointer-events-none" />
+      <section className="relative pt-[120px] pb-16 bg-black text-white bg-grid-pattern border-b border-slate-900">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-brand-blue/8 rounded-full blur-[90px] pointer-events-none" />
         <Container className="relative z-10 text-center max-w-3xl mx-auto flex flex-col gap-4">
           <Badge variant="cyan" className="w-fit mx-auto">CONTACT SUPPORT</Badge>
           <h1 className="text-4xl md:text-5xl font-manrope font-extrabold text-white tracking-tight">
@@ -66,7 +66,7 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT BODY */}
-      <section className="py-20 bg-[#050b16] text-white border-t border-slate-900">
+      <section className="py-20 bg-brand-navy text-white border-t border-slate-800/60">
         <Container>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -105,7 +105,7 @@ export default function ContactPage() {
                         id="fullName" 
                         type="text" 
                         placeholder="e.g. Aarav Sharma"
-                        className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple"
+                        className="px-4 py-2.5 bg-black/40 border border-slate-800/70 rounded-lg text-xs md:text-sm text-white focus:border-brand-blue transition-colors w-full"
                         {...register('fullName')}
                       />
                       {errors.fullName && <span className="text-[10px] text-error font-medium">{errors.fullName.message}</span>}
@@ -120,7 +120,7 @@ export default function ContactPage() {
                           id="email" 
                           type="email" 
                           placeholder="e.g. aarav.sharma@gmail.com"
-                          className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple"
+                          className="px-4 py-2.5 bg-black/40 border border-slate-800/70 rounded-lg text-xs md:text-sm text-white focus:border-brand-blue transition-colors w-full"
                           {...register('email')}
                         />
                         {errors.email && <span className="text-[10px] text-error font-medium">{errors.email.message}</span>}
@@ -133,7 +133,7 @@ export default function ContactPage() {
                           id="phone" 
                           type="tel" 
                           placeholder="e.g. 9876543210"
-                          className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple"
+                          className="px-4 py-2.5 bg-black/40 border border-slate-800/70 rounded-lg text-xs md:text-sm text-white focus:border-brand-blue transition-colors w-full"
                           {...register('phone')}
                         />
                         {errors.phone && <span className="text-[10px] text-error font-medium">{errors.phone.message}</span>}
@@ -147,7 +147,7 @@ export default function ContactPage() {
                         id="message" 
                         rows={5}
                         placeholder="Write your question details here..."
-                        className="px-4 py-2.5 bg-slate-950/40 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:border-brand-logo-purple resize-y"
+                        className="px-4 py-2.5 bg-black/40 border border-slate-800/70 rounded-lg text-xs md:text-sm text-white focus:border-brand-blue transition-colors resize-y w-full"
                         {...register('message')}
                       />
                       {errors.message && <span className="text-[10px] text-error font-medium">{errors.message.message}</span>}
@@ -179,31 +179,31 @@ export default function ContactPage() {
             <div className="lg:col-span-5 flex flex-col gap-6">
               
               {/* General support */}
-              <Card variant="light" className="p-6 border border-slate-200 flex flex-col gap-4">
-                <h4 className="font-manrope font-bold text-base text-brand-dark border-b border-slate-100 pb-2">Support Channels</h4>
+              <Card variant="dark" className="p-6 border border-slate-800/70 flex flex-col gap-4 bg-brand-elevated/40">
+                <h4 className="font-manrope font-bold text-base text-white border-b border-slate-800/70 pb-2">Support Channels</h4>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
+                    <Mail className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs font-semibold text-brand-dark block">Admissions Email</span>
-                      <span className="text-xs text-text-light-secondary">support@cybrixon-placeholder.edu</span>
+                      <span className="text-xs font-semibold text-white block">Admissions Email</span>
+                      <span className="text-xs text-text-dark-secondary">support@cybrixon-placeholder.edu</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs font-semibold text-brand-dark block">Office Support Hours</span>
-                      <span className="text-xs text-text-light-secondary">Mon-Fri, 9:00 AM - 6:00 PM IST</span>
+                      <span className="text-xs font-semibold text-white block">Office Support Hours</span>
+                      <span className="text-xs text-text-dark-secondary">Mon-Fri, 9:00 AM - 6:00 PM IST</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs font-semibold text-brand-dark block">Response Standards</span>
-                      <span className="text-xs text-text-light-secondary">Usually replies within 1 business day.</span>
+                      <span className="text-xs font-semibold text-white block">Response Standards</span>
+                      <span className="text-xs text-text-dark-secondary">Usually replies within 1 business day.</span>
                     </div>
                   </div>
                 </div>
