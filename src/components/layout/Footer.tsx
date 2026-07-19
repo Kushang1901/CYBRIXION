@@ -13,12 +13,20 @@ export default function Footer() {
           
           {/* BRAND COLUMN */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <img 
-                src="/logo.jpg" 
+                src="/logo_withoutbg.png" 
                 alt="CYBRIXION" 
-                className="h-9 w-auto rounded-md border border-slate-850 shadow-sm"
+                className="h-9 w-auto transition-all duration-300"
               />
+              <div className="flex flex-col justify-center leading-none">
+                <span className="font-manrope font-extrabold text-[16px] tracking-[0.12em] text-white transition-all duration-300 group-hover:text-brand-cyan">
+                  CYBRIXION
+                </span>
+                <span className="font-manrope font-semibold text-[8px] tracking-[0.35em] text-text-dark-secondary uppercase mt-0.5">
+                  SECURITY
+                </span>
+              </div>
             </Link>
             <p className="text-sm leading-relaxed max-w-sm">
               A comprehensive cybersecurity learning and structured internship platform designed to take students from theory to practice with real projects, verified credentials, and career readiness.

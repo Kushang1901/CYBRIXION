@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   Shield, 
@@ -29,6 +29,46 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CrystalsBackground from '@/components/ui/CrystalsBackground';
 
+const CYCLING_PHRASES = [
+  'Network Security',
+  'Ethical Hacking',
+  'Penetration Testing',
+  'SOC Analysis',
+  'Threat Intelligence',
+  'Web App Security',
+  'GRC & Compliance',
+];
+
+function CyclingText() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex(prev => (prev + 1) % CYCLING_PHRASES.length);
+        setVisible(true);
+      }, 400);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span
+      style={{
+        display: 'inline-block',
+        color: '#1E60C8',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0px)' : 'translateY(10px)',
+        transition: 'opacity 0.4s ease, transform 0.4s ease',
+      }}
+    >
+      {CYCLING_PHRASES[index]}
+    </span>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -47,53 +87,72 @@ export default function HomePage() {
             
             {/* LEFT COLUMN: INTRO TEXT & CTA */}
             <div className="lg:col-span-6 flex flex-col gap-6 text-left relative z-10">
-              <Badge variant="cyan" className="w-fit">
-                STRUCTURED CYBERSECURITY INTERNSHIPS
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-[54px] font-manrope font-extrabold text-white leading-[1.1] tracking-tight">
-                Build Real Cybersecurity Skills. <br />
-                <span className="text-brand-cyan">Start With the Right Path.</span>
-              </h1>
-              <p className="text-base md:text-lg text-text-dark-secondary leading-relaxed max-w-xl">
-                CYBRIXON provides structured cybersecurity internship programs designed to help students build strong foundations, practical understanding, project experience, and clear career direction.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <Button href="/internships" variant="primary" size="lg" glow>
-                  Explore Internships
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-                <Button href="/about" variant="outline" size="lg">
-                  See How It Works
-                </Button>
+              {/* Small pill badge */}
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  width: 'fit-content',
+                  border: '1px solid rgba(255,255,255,0.25)',
+                  borderRadius: '999px',
+                  padding: '4px 14px',
+                  fontSize: '13px',
+                  color: 'rgba(255,255,255,0.75)',
+                  backdropFilter: 'blur(4px)',
+                  background: 'rgba(255,255,255,0.04)',
+                }}
+              >
+                We don&apos;t just teach, we build it.
               </div>
 
-              {/* Trust Indicators */}
-              <div className="grid grid-cols-2 gap-y-4 gap-x-6 pt-6 border-t border-slate-800/80 mt-2">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-brand-cyan" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-dark-primary">Structured Learning</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-brand-cyan" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-dark-primary">Practical Projects</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-brand-cyan" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-dark-primary">Career-Focused Paths</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-brand-blue/15 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-brand-cyan" />
-                  </div>
-                  <span className="text-sm font-semibold text-text-dark-primary">Verifiable Certificates</span>
-                </div>
+              <h1
+                style={{
+                  fontSize: 'clamp(1.9rem, 4.5vw, 3.0rem)',
+                  fontWeight: 800,
+                  color: '#fff',
+                  lineHeight: 1.2,
+                  letterSpacing: '-0.02em',
+                  margin: 0,
+                }}
+              >
+                Start Learning<br />
+                <span style={{ whiteSpace: 'nowrap' }}>
+                  Now <CyclingText />
+                </span>
+              </h1>
+
+              <div className="flex flex-col sm:flex-row gap-4 mt-2">
+                <a
+                  href="/apply"
+                  className="group"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    background: 'linear-gradient(135deg, #1E60C8 0%, #154290 100%)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '999px',
+                    padding: '12px 28px',
+                    fontSize: '14.5px',
+                    fontWeight: 700,
+                    color: '#fff',
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 0 20px rgba(30, 96, 200, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(30, 96, 200, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 20px rgba(30, 96, 200, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <span>Signup Now</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ fontSize: '15px' }}>↗</span>
+                </a>
               </div>
             </div>
 
@@ -335,19 +394,19 @@ export default function HomePage() {
           <div className="flex flex-col gap-5">
             
             {/* 30-Day Compact Card */}
-            <div className="group flex flex-col sm:flex-row border border-slate-800/70 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(30,96,200,0.12)] transition-all duration-300">
-              {/* Image Placeholder */}
-              <div className="sm:w-56 h-40 sm:h-auto bg-slate-950/80 border-b sm:border-b-0 sm:border-r border-slate-800/70 flex items-center justify-center relative overflow-hidden flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/8 to-brand-blue/12 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <div className="flex flex-col items-center gap-2 relative z-10">
-                  <Shield className="w-8 h-8 text-slate-700 group-hover:text-slate-600 transition-colors" />
-                  <span className="text-[9px] font-mono text-slate-600 tracking-wider">IMAGE PLACEHOLDER</span>
-                </div>
+            <div className="group flex flex-col sm:flex-row border border-slate-800/70 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(30,96,200,0.12)] transition-all duration-300 p-4 items-center gap-5">
+              {/* Image Container (Round Edge Box) */}
+              <div className="w-full sm:w-48 h-32 relative rounded-xl overflow-hidden flex-shrink-0 bg-slate-950/80 border border-slate-800">
+                <img 
+                  src="/beginner.png" 
+                  alt="30-Day Cybersecurity Internship" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 {/* Duration badge over image */}
-                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-blue bg-brand-blue/10 border border-brand-blue/25 px-2 py-0.5 rounded-full">30 DAYS</span>
+                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-cyan bg-black/75 backdrop-blur-sm border border-brand-cyan/20 px-2 py-0.5 rounded-full z-10">30 DAYS</span>
               </div>
               {/* Content */}
-              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full">
                 <div className="flex-1 flex flex-col gap-1.5">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Beginner Level</span>
@@ -357,8 +416,13 @@ export default function HomePage() {
                     Covering cybersecurity fundamentals, networking basics, operating systems, and ethical scanning tools.
                   </p>
                 </div>
-                <div className="flex-shrink-0">
-                  <Button href="/internships/30-day-cybersecurity-internship" variant="outline" size="sm">
+                <div className="flex-shrink-0 w-full sm:w-auto">
+                  <Button 
+                    href="/internships/30-day-cybersecurity-internship" 
+                    variant="outline" 
+                    size="sm"
+                    className="w-full sm:w-auto hover:bg-brand-blue hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(30,96,200,0.50)]"
+                  >
                     View Details
                     <ChevronRight className="w-3.5 h-3.5" />
                   </Button>
@@ -367,33 +431,38 @@ export default function HomePage() {
             </div>
 
             {/* 60-Day Compact Card (Most Popular) */}
-            <div className="group flex flex-col sm:flex-row border-2 border-brand-blue/40 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/70 hover:shadow-[0_0_28px_rgba(30,96,200,0.20)] transition-all duration-300 relative">
-              {/* Most Popular badge */}
-              <div className="absolute top-3 right-3 sm:right-auto sm:top-3 sm:left-[240px] bg-brand-logo-red text-white text-[8px] font-bold font-manrope px-2.5 py-0.5 rounded uppercase tracking-wider z-20">
-                Most Popular
-              </div>
-              {/* Image Placeholder */}
-              <div className="sm:w-56 h-40 sm:h-auto bg-slate-950/80 border-b sm:border-b-0 sm:border-r border-brand-blue/20 flex items-center justify-center relative overflow-hidden flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-red/12 to-brand-blue/18 opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-                <div className="flex flex-col items-center gap-2 relative z-10">
-                  <Shield className="w-8 h-8 text-slate-700 group-hover:text-slate-600 transition-colors" />
-                  <span className="text-[9px] font-mono text-slate-600 tracking-wider">IMAGE PLACEHOLDER</span>
-                </div>
-                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/25 px-2 py-0.5 rounded-full">60 DAYS</span>
+            <div className="group flex flex-col sm:flex-row border-2 border-brand-blue/40 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/70 hover:shadow-[0_0_28px_rgba(30,96,200,0.20)] transition-all duration-300 p-4 items-center gap-5 relative">
+              {/* Image Container (Round Edge Box) */}
+              <div className="w-full sm:w-48 h-32 relative rounded-xl overflow-hidden flex-shrink-0 bg-slate-950/80 border border-brand-blue/20">
+                <img 
+                  src="/Intermediate.png" 
+                  alt="60-Day Cybersecurity Internship" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-cyan bg-black/75 backdrop-blur-sm border border-brand-cyan/20 px-2 py-0.5 rounded-full z-10">60 DAYS</span>
               </div>
               {/* Content */}
-              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full">
                 <div className="flex-1 flex flex-col gap-1.5">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Intermediate Level</span>
+                    <span className="bg-brand-logo-red text-white text-[8px] font-extrabold font-manrope px-2.5 py-0.5 rounded uppercase tracking-wider">
+                      Most Popular
+                    </span>
                   </div>
                   <h3 className="font-manrope font-bold text-base text-white group-hover:text-brand-cyan transition-colors">60-Day Cybersecurity Internship</h3>
                   <p className="text-xs text-text-dark-secondary leading-relaxed line-clamp-2">
                     Network security, scanning concepts, web security, OWASP Top 10, log analysis, and career support.
                   </p>
                 </div>
-                <div className="flex-shrink-0">
-                  <Button href="/internships/60-day-cybersecurity-internship" variant="primary" size="sm" glow>
+                <div className="flex-shrink-0 w-full sm:w-auto">
+                  <Button 
+                    href="/internships/60-day-cybersecurity-internship" 
+                    variant="primary" 
+                    size="sm" 
+                    glow
+                    className="w-full sm:w-auto"
+                  >
                     View Details
                     <ChevronRight className="w-3.5 h-3.5" />
                   </Button>
@@ -402,18 +471,18 @@ export default function HomePage() {
             </div>
 
             {/* 90-Day Compact Card */}
-            <div className="group flex flex-col sm:flex-row border border-slate-800/70 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(30,96,200,0.12)] transition-all duration-300">
-              {/* Image Placeholder */}
-              <div className="sm:w-56 h-40 sm:h-auto bg-slate-950/80 border-b sm:border-b-0 sm:border-r border-slate-800/70 flex items-center justify-center relative overflow-hidden flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-logo-purple/8 to-brand-blue/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <div className="flex flex-col items-center gap-2 relative z-10">
-                  <Shield className="w-8 h-8 text-slate-700 group-hover:text-slate-600 transition-colors" />
-                  <span className="text-[9px] font-mono text-slate-600 tracking-wider">IMAGE PLACEHOLDER</span>
-                </div>
-                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-logo-purple bg-brand-logo-purple/10 border border-brand-logo-purple/25 px-2 py-0.5 rounded-full">90 DAYS</span>
+            <div className="group flex flex-col sm:flex-row border border-slate-800/70 rounded-2xl bg-brand-elevated/40 overflow-hidden hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(30,96,200,0.12)] transition-all duration-300 p-4 items-center gap-5">
+              {/* Image Container (Round Edge Box) */}
+              <div className="w-full sm:w-48 h-32 relative rounded-xl overflow-hidden flex-shrink-0 bg-slate-950/80 border border-slate-800">
+                <img 
+                  src="/Advanced.png" 
+                  alt="90-Day Advanced Internship" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute top-3 left-3 text-[9px] font-bold text-brand-cyan bg-black/75 backdrop-blur-sm border border-brand-cyan/20 px-2 py-0.5 rounded-full z-10">90 DAYS</span>
               </div>
               {/* Content */}
-              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center gap-4 p-5">
+              <div className="flex flex-1 flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full">
                 <div className="flex-1 flex flex-col gap-1.5">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold text-brand-logo-purple uppercase tracking-wider">Advanced Level</span>
@@ -423,8 +492,13 @@ export default function HomePage() {
                     Advanced core security training with specialized tracks: SOC Analyst, VAPT, or GRC operations.
                   </p>
                 </div>
-                <div className="flex-shrink-0">
-                  <Button href="/internships/90-day-advanced-cybersecurity-internship" variant="outline" size="sm">
+                <div className="flex-shrink-0 w-full sm:w-auto">
+                  <Button 
+                    href="/internships/90-day-advanced-cybersecurity-internship" 
+                    variant="outline" 
+                    size="sm"
+                    className="w-full sm:w-auto hover:bg-brand-blue hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(30,96,200,0.50)]"
+                  >
                     View Details
                     <ChevronRight className="w-3.5 h-3.5" />
                   </Button>

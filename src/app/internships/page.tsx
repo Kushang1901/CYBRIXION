@@ -73,41 +73,45 @@ export default function InternshipsPage() {
               return (
                 <Card 
                   key={program.id}
-                  variant={isAdvanced ? 'dark' : 'light'} 
+                  variant="dark" 
                   hoverGlow 
-                  className={`flex flex-col border ${
-                    isPopular 
-                      ? 'border-2 border-brand-blue relative overflow-visible' 
-                      : isAdvanced 
-                      ? 'border-slate-805 bg-brand-navy bg-grid-pattern' 
-                      : 'border-slate-200'
+                  className={`flex flex-col border border-slate-800 bg-brand-navy bg-grid-pattern ${
+                    isPopular ? 'relative overflow-visible' : ''
                   }`}
                 >
                   {isPopular && (
-                    <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-brand-blue text-white text-[10px] font-bold font-manrope px-3 py-0.5 rounded-full uppercase tracking-wider z-10">
+                    <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-brand-blue text-white text-[10px] font-bold font-manrope px-3 py-0.5 rounded-full uppercase tracking-wider z-10 shadow-[0_0_10px_rgba(30,96,200,0.4)]">
                       Most Popular
                     </div>
                   )}
 
                   <div className="p-8 flex-1 flex flex-col gap-5">
                     <div className="flex justify-between items-start">
-                      <span className={`text-xs font-bold uppercase tracking-wider ${isAdvanced ? 'text-brand-violet' : 'text-slate-500'}`}>
+                      <span className={`text-xs font-bold uppercase tracking-wider ${
+                        program.level === 'Advanced' 
+                          ? 'text-brand-violet' 
+                          : program.level === 'Intermediate' 
+                          ? 'text-brand-cyan' 
+                          : 'text-slate-400'
+                      }`}>
                         {program.level} Level
                       </span>
                       <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                        isAdvanced 
+                        program.level === 'Advanced' 
                           ? 'bg-brand-violet/15 text-brand-violet border border-brand-violet/20' 
-                          : 'bg-brand-blue/5 text-brand-blue border border-brand-blue/10'
+                          : program.level === 'Intermediate'
+                          ? 'bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/20'
+                          : 'bg-brand-blue/15 text-brand-blue border border-brand-blue/20'
                       }`}>
                         {program.durationDays} Days
                       </span>
                     </div>
 
-                    <h3 className={`font-manrope font-extrabold text-2xl ${isAdvanced ? 'text-white' : 'text-brand-dark'}`}>
+                    <h3 className="font-manrope font-extrabold text-2xl text-white">
                       {program.title}
                     </h3>
                     
-                    <p className={`text-sm leading-relaxed ${isAdvanced ? 'text-text-dark-secondary' : 'text-text-light-secondary'}`}>
+                    <p className="text-sm leading-relaxed text-text-dark-secondary">
                       {program.description}
                     </p>
 
@@ -123,32 +127,32 @@ export default function InternshipsPage() {
                       </div>
                     )}
 
-                    <div className={`pt-5 border-t mt-auto space-y-3 ${isAdvanced ? 'border-slate-800' : 'border-slate-100'}`}>
+                    <div className="pt-5 border-t mt-auto space-y-3 border-slate-800">
                       <div className="flex items-center gap-2.5 text-xs font-semibold">
-                        <CheckCircle2 className={`w-4.5 h-4.5 ${isAdvanced ? 'text-brand-cyan' : 'text-success'}`} />
-                        <span className={isAdvanced ? 'text-text-dark-primary' : 'text-text-light-primary'}>
+                        <CheckCircle2 className="w-4.5 h-4.5 text-brand-cyan" />
+                        <span className="text-text-dark-primary">
                           {program.id === 'prog-30-day' ? '4-Week Path' : program.id === 'prog-60-day' ? '8-Week Path' : '12-Week Path'}
                         </span>
                       </div>
                       <div className="flex items-center gap-2.5 text-xs font-semibold">
-                        <CheckCircle2 className={`w-4.5 h-4.5 ${isAdvanced ? 'text-brand-cyan' : 'text-success'}`} />
-                        <span className={isAdvanced ? 'text-text-dark-primary' : 'text-text-light-primary'}>
+                        <CheckCircle2 className="w-4.5 h-4.5 text-brand-cyan" />
+                        <span className="text-text-dark-primary">
                           {program.projectsCount} Practical {program.projectsCount === 1 ? 'Project' : 'Projects'}
                         </span>
                       </div>
                       <div className="flex items-center gap-2.5 text-xs font-semibold">
-                        <CheckCircle2 className={`w-4.5 h-4.5 ${isAdvanced ? 'text-brand-cyan' : 'text-success'}`} />
-                        <span className={isAdvanced ? 'text-text-dark-primary' : 'text-text-light-primary'}>
+                        <CheckCircle2 className="w-4.5 h-4.5 text-brand-cyan" />
+                        <span className="text-text-dark-primary">
                           {program.id === 'prog-30-day' ? 'Introductory Security Tools' : program.id === 'prog-60-day' ? 'Resume Guidance Included' : 'Full Job Prep & Mocking'}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className={`p-6 border-t flex items-center ${isAdvanced ? 'bg-[#101E31] border-slate-800' : 'bg-slate-50 border-slate-100'}`}>
+                  <div className="p-6 border-t flex items-center bg-[#101E31] border-slate-800">
                     <Button 
                       href={`/internships/${program.slug}`}
-                      variant={isAdvanced ? 'secondary' : 'primary'} 
+                      variant="secondary" 
                       className="w-full"
                     >
                       View Program Details

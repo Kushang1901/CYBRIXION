@@ -173,45 +173,85 @@ export default function ApplyPage() {
       </section>
 
       {/* BODY STEPS CONTROL */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#030712] text-white">
         <Container className="max-w-3xl">
           
           {/* Progress Timeline Header */}
-          <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-6 mb-10 text-xs md:text-sm font-semibold">
-            <span className={step >= 0 ? 'text-brand-blue' : 'text-slate-400'}>1. Application</span>
-            <ChevronRight className="w-4 h-4 text-slate-350" />
-            <span className={step >= 1 ? 'text-brand-blue' : 'text-slate-400'}>2. Review</span>
-            <ChevronRight className="w-4 h-4 text-slate-350" />
-            <span className={step >= 2 ? 'text-brand-blue' : 'text-slate-400'}>3. Payment</span>
-            <ChevronRight className="w-4 h-4 text-slate-350" />
-            <span className={step === 3 ? 'text-brand-blue' : 'text-slate-400'}>4. Success</span>
+          <div className="relative mb-12 flex justify-between items-center max-w-xl mx-auto">
+            {/* Background Line */}
+            <div className="absolute top-[18px] left-[5%] right-[5%] h-0.5 bg-slate-800 -z-0" />
+            {/* Active Progress Fill Line */}
+            <div 
+              className="absolute top-[18px] left-[5%] h-0.5 bg-gradient-to-r from-brand-cyan to-brand-blue transition-all duration-500 -z-0" 
+              style={{ width: `${(step / 3) * 90}%` }}
+            />
+
+            {[
+              { index: 0, label: 'Application', desc: 'Fill Details' },
+              { index: 1, label: 'Review', desc: 'Verify Inputs' },
+              { index: 2, label: 'Payment', desc: 'Sandbox Pay' },
+              { index: 3, label: 'Success', desc: 'Dashboard Access' }
+            ].map((s) => {
+              const isActive = step === s.index;
+              const isCompleted = step > s.index;
+              
+              return (
+                <div key={s.index} className="flex flex-col items-center relative z-10">
+                  <div 
+                    className={`w-9 h-9 rounded-full font-manrope font-extrabold text-xs flex items-center justify-center transition-all duration-500 border ${
+                      isCompleted
+                        ? 'bg-brand-cyan border-brand-cyan text-brand-dark shadow-[0_0_15px_rgba(34,211,238,0.4)]'
+                        : isActive
+                        ? 'bg-[#0B1524] border-brand-cyan text-brand-cyan shadow-[0_0_15px_rgba(34,211,238,0.25)]'
+                        : 'bg-slate-950 border-slate-800 text-slate-500'
+                    }`}
+                  >
+                    {isCompleted ? (
+                      <Check className="w-4 h-4 text-black stroke-[3px]" />
+                    ) : (
+                      <span>{s.index + 1}</span>
+                    )}
+                  </div>
+                  <span 
+                    className={`font-manrope text-[11px] font-bold tracking-wide mt-2.5 transition-colors ${
+                      isActive || isCompleted ? 'text-white' : 'text-slate-500'
+                    }`}
+                  >
+                    {s.label}
+                  </span>
+                  <span className="hidden sm:inline font-mono text-[9px] text-slate-600 uppercase tracking-wider mt-0.5">
+                    {s.desc}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
           {/* STEP 0: FORM INPUTS */}
           {step === 0 && (
-            <Card variant="light" className="p-8 border border-slate-200 shadow-md">
+            <Card variant="dark" className="p-8 border border-slate-800/80 bg-brand-navy shadow-md">
               <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
-                <h3 className="font-manrope font-bold text-lg text-brand-dark mb-4 pb-2 border-b border-slate-100">Personal Information</h3>
+                <h3 className="font-manrope font-bold text-lg text-white mb-4 pb-2 border-b border-slate-800">Personal Information</h3>
                 
                 {/* Full name & Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Full Name *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Full Name *</label>
                     <input 
                       type="text" 
                       placeholder="e.g. Aarav Sharma"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('fullName')}
                     />
                     {errors.fullName && <span className="text-[10px] text-error font-medium">{errors.fullName.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Email Address *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Email Address *</label>
                     <input 
                       type="email" 
                       placeholder="e.g. aarav.sharma@gmail.com"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('email')}
                     />
                     {errors.email && <span className="text-[10px] text-error font-medium">{errors.email.message}</span>}
@@ -221,49 +261,49 @@ export default function ApplyPage() {
                 {/* Phone & City */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Phone Number *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Phone Number *</label>
                     <input 
                       type="tel" 
                       placeholder="e.g. 9876543210"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('phone')}
                     />
                     {errors.phone && <span className="text-[10px] text-error font-medium">{errors.phone.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">City of Residence *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">City of Residence *</label>
                     <input 
                       type="text" 
                       placeholder="e.g. New Delhi"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('city')}
                     />
                     {errors.city && <span className="text-[10px] text-error font-medium">{errors.city.message}</span>}
                   </div>
                 </div>
 
-                <h3 className="font-manrope font-bold text-lg text-brand-dark mb-4 pt-4 pb-2 border-b border-slate-100">Academic Background</h3>
+                <h3 className="font-manrope font-bold text-lg text-white mb-4 pt-4 pb-2 border-b border-slate-800">Academic Background</h3>
                 
                 {/* College & Degree */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">College / University *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">College / University *</label>
                     <input 
                       type="text" 
                       placeholder="e.g. NIT Delhi"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('college')}
                     />
                     {errors.college && <span className="text-[10px] text-error font-medium">{errors.college.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Degree & Major *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Degree & Major *</label>
                     <input 
                       type="text" 
                       placeholder="e.g. B.Tech Computer Science"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('degree')}
                     />
                     {errors.degree && <span className="text-[10px] text-error font-medium">{errors.degree.message}</span>}
@@ -273,45 +313,48 @@ export default function ApplyPage() {
                 {/* Academic Year & Experience */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Current Year *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Current Year *</label>
                     <select 
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:outline-none focus:border-brand-cyan/60 transition-all cursor-pointer"
+                      style={{ colorScheme: 'dark' }}
                       {...register('currentYear')}
                     >
-                      <option value="1st Year">1st Year</option>
-                      <option value="2nd Year">2nd Year</option>
-                      <option value="3rd Year">3rd Year</option>
-                      <option value="4th Year">4th Year</option>
-                      <option value="Graduated">Graduated</option>
-                      <option value="Other">Other</option>
+                      <option value="1st Year" className="bg-[#0B1524] text-white">1st Year</option>
+                      <option value="2nd Year" className="bg-[#0B1524] text-white">2nd Year</option>
+                      <option value="3rd Year" className="bg-[#0B1524] text-white">3rd Year</option>
+                      <option value="4th Year" className="bg-[#0B1524] text-white">4th Year</option>
+                      <option value="Graduated" className="bg-[#0B1524] text-white">Graduated</option>
+                      <option value="Other" className="bg-[#0B1524] text-white">Other</option>
                     </select>
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Cybersecurity Experience *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Cybersecurity Experience *</label>
                     <select 
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:outline-none focus:border-brand-cyan/60 transition-all cursor-pointer"
+                      style={{ colorScheme: 'dark' }}
                       {...register('experienceLevel')}
                     >
-                      <option value="Beginner">Beginner (Concept familiarity)</option>
-                      <option value="Intermediate">Intermediate (Used Linux/ports)</option>
-                      <option value="Advanced">Advanced (Practical pentest experience)</option>
+                      <option value="Beginner" className="bg-[#0B1524] text-white">Beginner (Concept familiarity)</option>
+                      <option value="Intermediate" className="bg-[#0B1524] text-white">Intermediate (Used Linux/ports)</option>
+                      <option value="Advanced" className="bg-[#0B1524] text-white">Advanced (Practical pentest experience)</option>
                     </select>
                   </div>
                 </div>
 
-                <h3 className="font-manrope font-bold text-lg text-brand-dark mb-4 pt-4 pb-2 border-b border-slate-100">Program & Motivation</h3>
+                <h3 className="font-manrope font-bold text-lg text-white mb-4 pt-4 pb-2 border-b border-slate-800">Program & Motivation</h3>
 
                 {/* Program selector */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Interested Program *</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Interested Program *</label>
                     <select 
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white focus:outline-none focus:border-brand-cyan/60 transition-all cursor-pointer"
+                      style={{ colorScheme: 'dark' }}
                       {...register('interestedProgram')}
                     >
                       {mockPrograms.map(p => (
-                        <option key={p.id} value={p.id}>{p.title} ({p.durationDays} Days)</option>
+                        <option key={p.id} value={p.id} className="bg-[#0B1524] text-white">{p.title} ({p.durationDays} Days)</option>
                       ))}
                     </select>
                   </div>
@@ -319,15 +362,16 @@ export default function ApplyPage() {
                   {/* CONDITIONAL SPECIALIZATION FOR 90-DAY */}
                   {watchedProgram === 'prog-90-day' && (
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-bold text-brand-blue uppercase tracking-wide">Target Specialization *</label>
+                      <label className="text-xs font-bold text-brand-cyan uppercase tracking-wide">Target Specialization *</label>
                       <select 
-                        className="px-4 py-2.5 bg-slate-50 border border-brand-blue/35 rounded-lg text-xs md:text-sm"
+                        className="px-4 py-2.5 bg-slate-950 border border-brand-cyan/35 rounded-lg text-xs md:text-sm text-white focus:outline-none focus:border-brand-cyan/60 transition-all cursor-pointer"
+                        style={{ colorScheme: 'dark' }}
                         {...register('interestedSpecialization')}
                       >
-                        <option value="spec-soc">SOC Analyst Track</option>
-                        <option value="spec-vapt">VAPT Track</option>
-                        <option value="spec-grc">GRC Track</option>
-                        <option value="not-sure">Not Sure / Decide Later</option>
+                        <option value="spec-soc" className="bg-[#0B1524] text-white">SOC Analyst Track</option>
+                        <option value="spec-vapt" className="bg-[#0B1524] text-white">VAPT Track</option>
+                        <option value="spec-grc" className="bg-[#0B1524] text-white">GRC Track</option>
+                        <option value="not-sure" className="bg-[#0B1524] text-white">Not Sure / Decide Later</option>
                       </select>
                     </div>
                   )}
@@ -335,22 +379,22 @@ export default function ApplyPage() {
 
                 {/* Motivations */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Why do you want to join this program? *</label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Why do you want to join this program? *</label>
                   <textarea 
                     rows={3}
                     placeholder="Describe your learning expectations and motivation..."
-                    className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm resize-y"
+                    className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all resize-y"
                     {...register('whyJoin')}
                   />
                   {errors.whyJoin && <span className="text-[10px] text-error font-medium">{errors.whyJoin.message}</span>}
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">Describe your Career Goals *</label>
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">Describe your Career Goals *</label>
                   <textarea 
                     rows={2}
                     placeholder="Specify targeted roles (e.g. SOC Analyst, Pentester, Security Operations)..."
-                    className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm resize-y"
+                    className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all resize-y"
                     {...register('careerGoal')}
                   />
                   {errors.careerGoal && <span className="text-[10px] text-error font-medium">{errors.careerGoal.message}</span>}
@@ -359,22 +403,22 @@ export default function ApplyPage() {
                 {/* Socials */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">LinkedIn Profile URL (Optional)</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">LinkedIn Profile URL (Optional)</label>
                     <input 
                       type="url" 
                       placeholder="e.g. https://linkedin.com/in/username"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('linkedinUrl')}
                     />
                     {errors.linkedinUrl && <span className="text-[10px] text-error font-medium">{errors.linkedinUrl.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wide">GitHub Profile URL (Optional)</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">GitHub Profile URL (Optional)</label>
                     <input 
                       type="url" 
                       placeholder="e.g. https://github.com/username"
-                      className="px-4 py-2.5 bg-slate-50 border border-slate-250 rounded-lg text-xs md:text-sm"
+                      className="px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan/60 transition-all"
                       {...register('githubUrl')}
                     />
                     {errors.githubUrl && <span className="text-[10px] text-error font-medium">{errors.githubUrl.message}</span>}
@@ -382,15 +426,15 @@ export default function ApplyPage() {
                 </div>
 
                 {/* Terms accepted */}
-                <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
+                <div className="pt-4 border-t border-slate-800 flex flex-col gap-2">
                   <div className="flex items-start gap-2.5">
                     <input 
                       id="termsAccepted" 
                       type="checkbox" 
-                      className="w-4 h-4 mt-0.5 cursor-pointer"
+                      className="w-4 h-4 mt-0.5 cursor-pointer accent-brand-cyan"
                       {...register('termsAccepted')}
                     />
-                    <label htmlFor="termsAccepted" className="text-xs text-text-light-secondary leading-normal">
+                    <label htmlFor="termsAccepted" className="text-xs text-text-dark-secondary leading-normal">
                       I agree to the terms of study. I understand that CYBRIXON does not provide official university degrees. I commit to legal scanning bounds and agree to only conduct security exercises in authorized environments. *
                     </label>
                   </div>
@@ -408,41 +452,41 @@ export default function ApplyPage() {
 
           {/* STEP 1: REVIEW DETAILS */}
           {step === 1 && formData && (
-            <Card variant="light" className="p-8 border border-slate-200 shadow-md space-y-6">
-              <h3 className="font-manrope font-bold text-lg text-brand-dark pb-2 border-b border-slate-100">Review Application Details</h3>
+            <Card variant="dark" className="p-8 border border-slate-800 bg-brand-navy shadow-md space-y-6">
+              <h3 className="font-manrope font-bold text-lg text-white pb-2 border-b border-slate-800">Review Application Details</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-xs md:text-sm">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Candidate Name</span>
-                  <span className="font-semibold text-brand-dark">{formData.fullName}</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">Candidate Name</span>
+                  <span className="font-semibold text-white">{formData.fullName}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Email Address</span>
-                  <span className="font-semibold text-brand-dark">{formData.email}</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">Email Address</span>
+                  <span className="font-semibold text-white">{formData.email}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Phone Number</span>
-                  <span className="font-semibold text-brand-dark">{formData.phone}</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">Phone Number</span>
+                  <span className="font-semibold text-white">{formData.phone}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">City</span>
-                  <span className="font-semibold text-brand-dark">{formData.city}</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">City</span>
+                  <span className="font-semibold text-white">{formData.city}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">College / University</span>
-                  <span className="font-semibold text-brand-dark">{formData.college}</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">College / University</span>
+                  <span className="font-semibold text-white">{formData.college}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Degree / Major</span>
-                  <span className="font-semibold text-brand-dark">{formData.degree} ({formData.currentYear})</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">Degree / Major</span>
+                  <span className="font-semibold text-white">{formData.degree} ({formData.currentYear})</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Selected Program</span>
-                  <span className="font-semibold text-brand-blue">{selectedProgramObj?.title} ({selectedProgramObj?.durationDays} Days)</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-500 block">Selected Program</span>
+                  <span className="font-semibold text-brand-cyan">{selectedProgramObj?.title} ({selectedProgramObj?.durationDays} Days)</span>
                 </div>
                 {formData.interestedProgram === 'prog-90-day' && (
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Specialization Track</span>
+                    <span className="text-[10px] uppercase font-bold text-slate-500 block">Specialization Track</span>
                     <span className="font-semibold text-brand-violet">
                       {formData.interestedSpecialization === 'spec-soc' && 'SOC Analyst Track'}
                       {formData.interestedSpecialization === 'spec-vapt' && 'VAPT Track'}
@@ -453,10 +497,10 @@ export default function ApplyPage() {
                 )}
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex gap-4">
+              <div className="pt-4 border-t border-slate-800 flex gap-4">
                 <button 
                   onClick={() => setStep(0)} 
-                  className="w-1/2 py-2.5 border border-slate-250 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5 text-text-light-secondary cursor-pointer"
+                  className="w-1/2 py-2.5 border border-slate-800 rounded-lg text-xs font-semibold hover:bg-slate-900 transition-all flex items-center justify-center gap-1.5 text-text-dark-secondary cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Edit Form
@@ -474,13 +518,13 @@ export default function ApplyPage() {
 
           {/* STEP 2: DEMO PAYMENT GATEWAY */}
           {step === 2 && formData && (
-            <Card variant="light" className="p-8 border border-slate-200 shadow-md space-y-6">
-              <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                <CreditCard className="w-6 h-6 text-brand-blue" />
-                <h3 className="font-manrope font-bold text-lg text-brand-dark">CYBRIXON Enrollment sandbox</h3>
+            <Card variant="dark" className="p-8 border border-slate-800 bg-brand-navy shadow-md space-y-6">
+              <div className="flex items-center gap-3 pb-3 border-b border-slate-800">
+                <CreditCard className="w-6 h-6 text-brand-cyan" />
+                <h3 className="font-manrope font-bold text-lg text-white">CYBRIXION Enrollment Sandbox</h3>
               </div>
 
-              <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl text-blue-800 space-y-2">
+              <div className="p-4 bg-[#101E31]/80 border border-brand-cyan/20 rounded-xl text-brand-cyan space-y-2">
                 <span className="text-xs font-bold uppercase tracking-wider block">Demo Sandbox Simulator</span>
                 <p className="text-[11px] leading-relaxed">
                   This gateway is provider-agnostic and sandbox-ready. No actual payment provider is linked. Clicking "Complete Registration" will record an active enrollment and initialize your credentials in local storage.
@@ -488,24 +532,24 @@ export default function ApplyPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center text-xs md:text-sm py-2 border-b border-slate-100">
-                  <span className="text-text-light-secondary">Selected Internship:</span>
-                  <span className="font-semibold text-brand-dark">{selectedProgramObj?.title}</span>
+                <div className="flex justify-between items-center text-xs md:text-sm py-2 border-b border-slate-800">
+                  <span className="text-text-dark-secondary">Selected Internship:</span>
+                  <span className="font-semibold text-white">{selectedProgramObj?.title}</span>
                 </div>
-                <div className="flex justify-between items-center text-xs md:text-sm py-2 border-b border-slate-100">
-                  <span className="text-text-light-secondary">Program Tuition Fees:</span>
-                  <span className="font-bold text-brand-dark">Demo / Free Sandbox</span>
+                <div className="flex justify-between items-center text-xs md:text-sm py-2 border-b border-slate-800">
+                  <span className="text-text-dark-secondary">Program Tuition Fees:</span>
+                  <span className="font-bold text-white">Demo / Free Sandbox</span>
                 </div>
                 <div className="flex justify-between items-center text-xs md:text-sm py-2">
-                  <span className="text-text-light-secondary font-bold">Total Fees:</span>
-                  <span className="font-extrabold text-sm text-brand-blue">$0.00</span>
+                  <span className="text-text-dark-secondary font-bold">Total Fees:</span>
+                  <span className="font-extrabold text-sm text-brand-cyan">$0.00</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex gap-4">
+              <div className="pt-4 border-t border-slate-800 flex gap-4">
                 <button 
                   onClick={() => setStep(1)} 
-                  className="w-1/2 py-2.5 border border-slate-250 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5 text-text-light-secondary cursor-pointer"
+                  className="w-1/2 py-2.5 border border-slate-800 rounded-lg text-xs font-semibold hover:bg-slate-900 transition-all flex items-center justify-center gap-1.5 text-text-dark-secondary cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Review Details
@@ -523,35 +567,35 @@ export default function ApplyPage() {
 
           {/* STEP 3: SUCCESS STATE SPLASH */}
           {step === 3 && formData && (
-            <Card variant="light" className="p-8 border border-slate-200 shadow-xl text-center space-y-6">
+            <Card variant="dark" className="p-8 border border-slate-800 shadow-xl text-center space-y-6 bg-brand-navy">
               <div className="flex flex-col items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-500">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 
                 <div>
                   <Badge variant="success">ACTIVE ENROLLMENT</Badge>
-                  <h3 className="font-manrope font-extrabold text-2xl text-brand-dark mt-2 tracking-tight">
+                  <h3 className="font-manrope font-extrabold text-2xl text-white mt-2 tracking-tight">
                     Registration Completed Successfully
                   </h3>
-                  <p className="text-xs md:text-sm text-text-light-secondary max-w-sm mx-auto mt-2 leading-relaxed">
+                  <p className="text-xs md:text-sm text-text-dark-secondary max-w-sm mx-auto mt-2 leading-relaxed">
                     Welcome to CYBRIXON, {formData.fullName}. Your student profile has been created and your active credentials logged in the sandbox.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-3 max-w-md mx-auto text-left text-xs text-text-light-primary">
+              <div className="p-5 bg-slate-950 border border-slate-800 rounded-xl space-y-3 max-w-md mx-auto text-left text-xs text-text-dark-primary">
                 <div className="flex justify-between">
-                  <span className="text-text-light-secondary">Student Name:</span>
-                  <span className="font-semibold">{formData.fullName}</span>
+                  <span className="text-text-dark-secondary">Student Name:</span>
+                  <span className="font-semibold text-white">{formData.fullName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-light-secondary">Enrollment Program:</span>
-                  <span className="font-semibold text-brand-blue">{selectedProgramObj?.title}</span>
+                  <span className="text-text-dark-secondary">Enrollment Program:</span>
+                  <span className="font-semibold text-brand-cyan">{selectedProgramObj?.title}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-light-secondary">Credentials Setup:</span>
-                  <span className="font-semibold text-emerald-600">Logged In automatically</span>
+                  <span className="text-text-dark-secondary">Credentials Setup:</span>
+                  <span className="font-semibold text-emerald-500">Logged In automatically</span>
                 </div>
               </div>
 
