@@ -99,17 +99,26 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div>
           {/* Sidebar Brand Header */}
           <div className="h-[76px] px-6 border-b border-slate-800 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <Shield className="w-6 h-6 text-brand-cyan" />
+            <Link href="/" className="flex items-center gap-3 group">
+              <img 
+                src="/logo_withoutbg.png" 
+                alt="CYBRIXION" 
+                className="h-10 w-auto transition-all duration-300"
+              />
               {!sidebarCollapsed && (
-                <span className="font-manrope font-extrabold text-lg text-white">
-                  CYB<span className="text-brand-cyan">RIXON</span>
-                </span>
+                <div className="flex flex-col justify-center leading-none">
+                  <span className="font-manrope font-extrabold text-[16px] tracking-[0.12em] text-white transition-all duration-300 group-hover:text-brand-cyan">
+                    CYBRIXION
+                  </span>
+                  <span className="font-manrope font-semibold text-[8px] tracking-[0.35em] text-text-dark-secondary uppercase mt-0.5">
+                    SECURITY
+                  </span>
+                </div>
               )}
             </Link>
             <button 
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white cursor-pointer"
+              className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white cursor-pointer flex-shrink-0"
               title={sidebarCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
             >
               {sidebarCollapsed ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -246,11 +255,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="fixed inset-y-0 left-0 w-64 bg-brand-dark border-r border-slate-800 shadow-2xl z-50 p-6 flex flex-col justify-between lg:hidden animate-slide-in">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                  <Shield className="w-5 h-5 text-brand-cyan" />
-                  <span className="font-manrope font-extrabold text-base text-white">
-                    CYB<span className="text-brand-cyan">RIXON</span>
-                  </span>
+                <Link href="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+                  <img 
+                    src="/logo_withoutbg.png" 
+                    alt="CYBRIXION" 
+                    className="h-9 w-auto"
+                  />
+                  <div className="flex flex-col justify-center leading-none">
+                    <span className="font-manrope font-extrabold text-[15px] tracking-[0.12em] text-white">
+                      CYBRIXION
+                    </span>
+                    <span className="font-manrope font-semibold text-[8px] tracking-[0.35em] text-text-dark-secondary uppercase mt-0.5">
+                      SECURITY
+                    </span>
+                  </div>
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}

@@ -21,10 +21,10 @@ export default function Button({
   const baseStyles = 'inline-flex items-center justify-center font-manrope font-semibold rounded-lg transition-all duration-300 active:scale-[0.98] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100';
   
   const variants = {
-    primary: 'bg-brand-blue hover:bg-blue-600 text-white border border-transparent shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)]',
+    primary: 'bg-brand-blue hover:bg-[#1850A8] text-white border border-transparent shadow-[0_4px_14px_rgba(30,96,200,0.35)] hover:shadow-[0_6px_20px_rgba(30,96,200,0.50)]',
     secondary: 'bg-brand-navy hover:bg-brand-elevated text-brand-cyan border border-brand-cyan/20 hover:border-brand-cyan/40 shadow-sm',
-    outline: 'bg-transparent border border-text-light-secondary/20 hover:border-brand-blue text-text-light-primary hover:text-brand-blue dark:text-text-dark-primary dark:border-brand-cyan/20 dark:hover:border-brand-cyan dark:hover:text-brand-cyan',
-    ghost: 'bg-transparent text-text-light-secondary hover:text-text-light-primary hover:bg-black/5 dark:text-text-dark-secondary dark:hover:text-text-dark-primary dark:hover:bg-white/5',
+    outline: 'bg-transparent border border-white/15 hover:border-brand-blue text-text-dark-primary hover:text-brand-cyan hover:border-brand-cyan/50',
+    ghost: 'bg-transparent text-text-dark-secondary hover:text-text-dark-primary hover:bg-white/5',
     danger: 'bg-error hover:bg-red-600 text-white shadow-sm'
   };
 
@@ -35,9 +35,9 @@ export default function Button({
   };
 
   const glowStyles = glow && variant === 'secondary'
-    ? 'cyan-glow shadow-[0_0_15px_rgba(34,211,238,0.25)]'
+    ? 'shadow-[0_0_18px_rgba(34,211,238,0.25)]'
     : glow && variant === 'primary'
-    ? 'shadow-[0_0_15px_rgba(59,130,246,0.4)]'
+    ? 'shadow-[0_0_20px_rgba(30,96,200,0.50)]'
     : '';
 
   const fullClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${glowStyles} ${className}`;

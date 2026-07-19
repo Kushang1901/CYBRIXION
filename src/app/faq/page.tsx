@@ -153,14 +153,14 @@ export default function FAQPage() {
       </section>
 
       {/* Accordion Layout */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#030712] text-white">
         <Container>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
             {/* Desktop Category Sidebar */}
             <div className="lg:col-span-4 flex flex-col gap-2">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 mb-2 block">Categories</span>
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-2 block">Categories</span>
               {categories.map((cat) => (
                 <button
                   key={cat.key}
@@ -170,20 +170,20 @@ export default function FAQPage() {
                   }}
                   className={`w-full px-4 py-3 rounded-lg text-left text-xs md:text-sm font-semibold transition-all flex items-center justify-between cursor-pointer ${
                     activeCategory === cat.key
-                      ? 'bg-slate-100 text-brand-dark border-l-4 border-brand-blue pl-3'
-                      : 'bg-transparent text-text-light-secondary hover:bg-slate-50'
+                      ? 'bg-[#0B1524] text-brand-cyan border-l-4 border-brand-cyan pl-3'
+                      : 'bg-transparent text-text-dark-secondary hover:bg-[#0B1524]/40 hover:text-white'
                   }`}
                 >
                   {cat.label}
-                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                  <ChevronRight className="w-4 h-4 text-slate-500" />
                 </button>
               ))}
             </div>
 
             {/* Accordion Content */}
             <div className="lg:col-span-8 space-y-4">
-              <h3 className="font-manrope font-extrabold text-lg text-brand-dark pb-3 border-b border-slate-100 flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-brand-blue" />
+              <h3 className="font-manrope font-extrabold text-lg text-white pb-3 border-b border-slate-800 flex items-center gap-2">
+                <HelpCircle className="w-5 h-5 text-brand-cyan" />
                 {categories.find((c) => c.key === activeCategory)?.label}
               </h3>
               
@@ -194,20 +194,20 @@ export default function FAQPage() {
                   return (
                     <div 
                       key={faq.id}
-                      className="border border-slate-200 rounded-xl overflow-hidden shadow-sm"
+                      className="border border-slate-800/85 bg-brand-navy/30 rounded-xl overflow-hidden shadow-sm"
                     >
                       <button
                         onClick={() => toggleFAQ(faq.id)}
-                        className="w-full px-5 py-4 bg-slate-50 flex items-center justify-between hover:bg-slate-100/80 transition-colors text-left cursor-pointer"
+                        className="w-full px-5 py-4 bg-brand-navy/60 flex items-center justify-between hover:bg-brand-navy transition-colors text-left cursor-pointer"
                       >
-                        <span className="font-manrope font-bold text-xs md:text-sm text-brand-dark">
+                        <span className="font-manrope font-bold text-xs md:text-sm text-white">
                           {faq.question}
                         </span>
-                        {isExpanded ? <ChevronUp className="w-4 h-4 text-slate-400" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
+                        {isExpanded ? <ChevronUp className="w-4 h-4 text-brand-cyan" /> : <ChevronDown className="w-4 h-4 text-brand-cyan" />}
                       </button>
                       
                       {isExpanded && (
-                        <div className="p-5 bg-white border-t border-slate-150 text-xs md:text-sm leading-relaxed text-text-light-secondary">
+                        <div className="p-5 bg-black/20 border-t border-slate-800 text-xs md:text-sm leading-relaxed text-text-dark-secondary">
                           {faq.answer}
                         </div>
                       )}
